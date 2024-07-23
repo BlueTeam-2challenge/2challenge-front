@@ -3,13 +3,13 @@ import { getAnalytics } from "firebase/analytics";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCs5KsW4tGOXHBByf7O-vqy3QjsJdiRGMI",
-  authDomain: "challenge-blueteam.firebaseapp.com",
-  projectId: "challenge-blueteam",
-  storageBucket: "challenge-blueteam.appspot.com",
-  messagingSenderId: "761192753",
-  appId: "1:761192753:web:e85e05c74670c319281010",
-  measurementId: "G-1TJL5Y0G8V",
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_APP_ID,
+  measurementId: process.env.REACT_APP_MEASUREMENT_ID,
 };
 
 const app = initializeApp(firebaseConfig);
