@@ -1,17 +1,31 @@
 
-
-.montserrat-card-texts {
-  font-family: "Montserrat", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
+.card {
+    padding: 1rem;
 }
 
-.container-card {
-    align-content: space-between;
-    flex-direction: row;
+.mb-2 {
+    border-radius: 0.5rem;
+    width: 15.94rem;
+    height: 9.81rem;
+}
+
+.card-text {
+    padding-top: 0.2rem;
 }
 
 .card-title {
     font-family: "Montserrat";
+    color: #6C6C6C;
+    font-weight: 400;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+}
+
+.card-quantity {
+    font-family: "Montserrat";
+    color: #000;
+    font-weight: 700;
+    font-size: 1.8rem;
+    text-align: end;
+    margin-top: 0;
 }
