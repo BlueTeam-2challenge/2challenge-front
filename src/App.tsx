@@ -1,9 +1,14 @@
-import CardPage from "./pages/dashboard/components/CardPage";
+import { TextInput } from "./components/TextInput";
 
 function App() {
   return (
     <>
-      <CardPage />
+      <TextInput
+        label="Nome"
+        placeholder="Teste"
+        name="username"
+        onChange={() => console.log("Mudou")}
+      />
     </>
   );
 }
