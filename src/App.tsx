@@ -1,7 +1,9 @@
+import CardPage from "./pages/dashboard/components/CardPage";
+
 function App() {
   return (
     <>
-      <h1>Hello World!</h1>
+      <CardPage />
     </>
   );
 }
