@@ -1,4 +1,3 @@
-
 .card {
     padding: 1rem;
 }
@@ -28,4 +27,34 @@
     font-size: 1.8rem;
     text-align: end;
     margin-top: 0;
+}
+
+@media (max-width: 767px) {
+    .mb-2 {
+        width: 100%;
+        height: auto;
+    }
+    
+    .card-title {
+        font-size: 0.8rem;
+    }
+    
+    .card-quantity {
+        font-size: 1.5rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .mb-2 {
+        width: 15.94rem;
+        height: 9.81rem;
+    }
+    
+    .card-title {
+        font-size: 0.9rem;
+    }
+    
+    .card-quantity {
+        font-size: 1.8rem;
+    }
 }
