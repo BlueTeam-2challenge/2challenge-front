@@ -1,0 +1,55 @@
+
+.btn {
+    /* retirar a cor de fundo, para apenas ao estar na página*/
+    background-color: #2BC587;
+    border-radius: 0.25rem;
+    width: 12.06rem;
+    height: 2.56rem;
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn:hover {
+    cursor: pointer;
+}
+
+/* ADD: mudança de cor de fundo ao ir a página*/
+.btn.active {
+    background-color: #2BC587;
+}
+
+.btn-iconPage {
+    align-self: center;
+}
+
+.btn-textPage {
+    font-family: "Montserrat";
+    color: white;
+    font-weight: 500;
+    font-size: 0.88rem;
+    align-self: center;
+}
+
+@media (max-width: 767px) {
+    .btn {
+        width: 100%;
+        height: auto;
+    }
+    
+    .btn-textPage {
+        font-size: 0.8rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .btn {
+        width: 12.06rem;
+        height: 2.56rem;
+    }
+    
+    .btn-textPage {
+        font-size: 0.88rem;
+    }
+}
