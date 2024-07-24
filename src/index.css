@@ -3,10 +3,13 @@
   --color-secondary: #eee0cb;
   --color-tertiary: #baa898;
   --color-quaternary: #bfd7ea;
+  --color-darkGreen: #0b793d;
   --color-black: #000;
   --color-white: #fff;
   --color-outline: #e5e5e5;
   --color-text-input: #6c6c6c;
+  --color-text-tableHeader: #acacac;
+  --color-background-ligthGray: #f8f8f8;
   --font-family: "Montserrat";
 }
 
