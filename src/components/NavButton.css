@@ -1,7 +1,5 @@
 
 .btn {
-    /* retirar a cor de fundo, para apenas ao estar na página*/
-    background-color: #2BC587;
     border-radius: 0.25rem;
     width: 12.06rem;
     height: 2.56rem;
@@ -13,11 +11,6 @@
 
 .btn:hover {
     cursor: pointer;
-}
-
-/* ADD: mudança de cor de fundo ao ir a página*/
-.btn.active {
-    background-color: #2BC587;
 }
 
 .btn-iconPage {
