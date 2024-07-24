@@ -5,6 +5,7 @@ function App() {
     <>
       <TextInput
         label="Nome"
+        type="text"
         placeholder="Teste"
         name="username"
         onChange={() => console.log("Mudou")}

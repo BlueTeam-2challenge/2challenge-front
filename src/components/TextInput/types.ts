@@ -1,8 +1,10 @@
 export interface TextInputProps {
   label: string;
   name: string;
+  type: string;
   placeholder?: string;
   error?: string;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange?: () => void;
+  onBlur?: () => void;
   disabled?: boolean;
 }
