@@ -19,6 +19,20 @@
   margin-bottom: 10px;
 }
 
+.userIconSmall {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 65px;
+  height: 55px;
+  background-color: #c4c4c4;
+  border-radius: 8px;
+  font-size: 32px;
+  font-weight: bold;
+  color: var(--color-white);
+  margin-bottom: 10px;
+}
+
 .userName {
   font-size: 17px;
   font-weight: bold;
