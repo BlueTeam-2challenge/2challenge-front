@@ -1,0 +1,38 @@
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+  gap: 10px;
+}
+.inputLabel {
+  font-size: 14px;
+  color: var(--color-text-input);
+}
+.textInput {
+  padding: 0.5rem;
+  border: 1px solid var(--color-outline);
+  border-radius: 4px;
+  font-size: 12px;
+  color: var(--color-text-input);
+  outline: none;
+}
+
+.textInput:focus {
+  border: 1px solid var(--color-primary);
+}
+
+.textInputError {
+  padding: 0.5rem;
+  border: 1px solid var(--color-outline);
+  border-radius: 4px;
+  font-size: 12px;
+  color: red;
+  outline: none;
+  border: 1px solid red;
+}
+
+.errorMsg {
+  color: red;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
