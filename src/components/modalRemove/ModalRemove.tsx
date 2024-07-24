@@ -14,10 +14,10 @@ const ModalRemove = ({ isOpen, onClose, onConfirm }: modalRemoveProps) => {
           <p className="subtitle">Do you really want to remove this pet?</p>
         </div>
         <div className="btn-modal">
-          <button onClick={onClose} className="cancel">No
+          <button onClick={onClose} id="model-btn" className="cancel">No
             <img src="src\assets\images\paw-btn.png" alt="paw-icon" />
           </button>
-          <button onClick={onConfirm} className="comfirm">Yes</button>
+          <button onClick={onConfirm} id="model-btn" className="comfirm">Yes</button>
         </div>
       </div>
     </div>
