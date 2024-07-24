@@ -12,7 +12,7 @@ const SignIn = (props: SignInProps) => {
     }
 
   return (
-    <div>
+    <div className={styles.signContainer}>
       <button style={buttonStyle} className={styles.btn} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
         <p className={styles.btnText}>{props.label}</p>
       </button>

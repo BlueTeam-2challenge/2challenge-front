@@ -1,3 +1,8 @@
+.signContainer {
+    display: flex;
+    justify-content: center;
+}
+
 .btn{
     display: flex;
     height: 2.6rem;
@@ -6,6 +11,7 @@
     gap: 1rem;
     border-radius: 0.25rem;
     justify-content: center;
+    align-self: center;
 }
 
 .btn:hover{
@@ -18,4 +24,15 @@
     font-weight: 500;
     font-size: 0.88rem;
     display: flex;
+}
+
+@media (max-width: 767px) {
+    .btn {
+        width: 60%;
+        height: auto;
+    }
+    
+    .btn-textPage {
+        font-size: 0.8rem;
+    }
 }
