@@ -2,5 +2,6 @@
 export interface CardProps {
     icon: string,
     title: string,
-    quantity: number
+    quantity: number,
+    color: string
 }

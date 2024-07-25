@@ -4,13 +4,17 @@ import { CardProps } from './types';
 
 const CardPage = (props: CardProps) => {
 
+  const cardColor = {
+    backgroundColor: props.color
+  }
+
   return (
     <div>
       <Container className="container">
         <Col sm
           className="mb-2"
         >
-          <Card>
+          <Card style={cardColor}>
             <Card.Img
               className="card-icon"
               variant="top"
