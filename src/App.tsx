@@ -1,14 +1,13 @@
-import SignIn from "./components/SignIn/SignIn";
-import { TextInput } from "./components/TextInput";
-import UserProfile from "./components/UserProfile";
-import Form from "./pages/AnimalsList/components/Form";
-import CardPage from "./pages/dashboard/components/CardPage";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Dashboard from "./pages/dashboard/components/Dashboard";
 
 function App() {
   return (
-    <>
-      <Form />
-    </>
+    <BrowserRouter>
+      <Routes >
+        <Route path='/Home' element={<Dashboard />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
