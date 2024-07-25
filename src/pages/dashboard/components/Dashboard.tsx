@@ -28,7 +28,8 @@ const Dashboard = () => {
                     </div>
                 </header>
                 <section className="container-cards">
-                    <CardPage />
+                    <CardPage icon="src\assets\images\icone-pata.png" title="Animals" quantity={236} />
+                    <CardPage icon="src\assets\images\cat-icon.png" title="Animals Without Owners" quantity={18} />
                 </section>
             </div>
         </div>
