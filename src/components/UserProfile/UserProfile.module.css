@@ -19,8 +19,32 @@
   margin-bottom: 10px;
 }
 
+.userIcon:hover {
+  width: 150px;
+  height: 140px;
+  transition: 0.5s;
+}
+
 .userName {
   font-size: 17px;
   font-weight: bold;
   color: #000;
+}
+
+@media (max-width: 900px) {
+  .userIcon{
+    width: 100px;
+    height: 100px;
+  }
+
+  .userIcon:hover {
+    width: 130px;
+    height: 130px;
+    transition: 0.5s;
+  }
+
+  .userName{
+    font-size: 15px;
+  }
+  
 }
