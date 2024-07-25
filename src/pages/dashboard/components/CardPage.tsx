@@ -6,7 +6,7 @@ const CardPage = () => {
     <div>
       <Container className="container">
         {/* arrumar o length para a quantidade de cards a serem usados */}
-        {Array.from({ length: 4 }).map((_, idx) => (
+        {Array.from({ length: 2 }).map((_, idx) => (
           <Col sm
             key={idx}
             className="mb-2"

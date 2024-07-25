@@ -1,20 +1,13 @@
-import { TextInput } from "./components/TextInput";
-import UserProfile from "./components/UserProfile";
-import CardPage from "./pages/dashboard/components/CardPage";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Dashboard from "./pages/dashboard/components/Dashboard";
 
 function App() {
   return (
-    <>
-      <CardPage />
-      <TextInput
-        label="Nome"
-        type="text"
-        placeholder="Teste"
-        name="username"
-        onChange={() => console.log("Mudou")}
-      />
-      <UserProfile name="John Doe" />
-    </>
+    <BrowserRouter>
+      <Routes >
+        <Route path='/dashboard' element={<Dashboard />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
