@@ -9,19 +9,28 @@ const Dashboard = () => {
     return (
         <div>
             <aside className="container-options">
-                <Logo variant="default" />
-                <UserProfile name="John Doe" />
-                <NavButton to="/" label="Home" icon="src\assets\images\Home-icon.png" />
-                <NavButton to="/Animais" label="Animais" icon="src\assets\images\Animals-icon.png" />
-                <button>Logout <img src="src\assets\images\sign-out-alt.png" alt="leave-button" /></button>
+                <div className="content">
+                    <Logo variant="small" />
+
+                    <UserProfile name="John Doe" />
+                    <NavButton to="/home" label="Home" icon="src\assets\images\Home-icon.png" />
+                    <NavButton to="/Animais" label="Animais" icon="src\assets\images\Animals-icon.png" />
+
+                    <button className="logout">Logout <img src="src\assets\images\sign-out-alt.png" alt="leave-button" /></button>
+                </div>
             </aside>
-            <section className="container-searchbar">
-                <img src="src\assets\images\caret-circle-down.png" alt="caret-circle-down" />
-                <input type="text" placeholder="Search" /><img src="src\assets\images\search.png" alt="search" />
-            </section>
-            <section className="container-cards">
-                <CardPage />
-            </section>
+            <div className="not-aside">
+                <header className="container-searchbar">
+                    <img src="src\assets\images\caret-circle-down.png" alt="caret-circle-down" className="image" />
+                    <div className="container-input">
+                        <input type="text" placeholder="Search" className="input-search-bar" />
+                        <img src="src\assets\images\search.png" alt="search" className="input-icon" />
+                    </div>
+                </header>
+                <section className="container-cards">
+                    <CardPage />
+                </section>
+            </div>
         </div>
     )
 }
