@@ -14,7 +14,7 @@ const CardPage = (props: CardProps) => {
         <Col sm
           className="mb-2"
         >
-          <Card style={cardColor}>
+          <Card style={cardColor} className="card">
             <Card.Img
               className="card-icon"
               variant="top"
