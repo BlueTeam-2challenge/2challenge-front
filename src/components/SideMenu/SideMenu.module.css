@@ -1,0 +1,52 @@
+.sidebar {
+    background-color: #EEE0CB;
+    height: 100vh;
+    width: 17%;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 0.5rem 1rem 1.5rem;
+    gap: 1rem;
+}
+
+.navbar {
+    padding-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+@media (max-width: 1300px) {
+    .sidebar {
+        width: 20%;
+    }
+}
+
+@media (max-width: 1100px) {
+    .sidebar {
+        width: 22.5%;
+        align-content: center;
+    }
+
+    .logout{
+        align-self: center;
+    }
+
+    .navbar {
+        align-items: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .sidebar {
+        width: 100%;
+        height: 7.5vh;
+        padding: 1rem;
+        flex-flow: wrap;
+    }
+
+    .logout {
+        margin-top: 0;
+    }
+}
