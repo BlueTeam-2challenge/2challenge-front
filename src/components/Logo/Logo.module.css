@@ -33,15 +33,6 @@
     width: 180px;
   }
   .logoTextSmall {
-    font-size: 17px;
-  }
-}
-
-@media (max-width: 780px) {
-  .logoSmall{
-    width: 160px;
-  }
-  .logoTextSmall {
-    font-size: 14px;
+    font-size: 16px;
   }
 }

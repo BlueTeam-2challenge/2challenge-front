@@ -1,9 +1,9 @@
-import Menu from "./components/SideMenu/SideMenu";
+import SideMenu from "./components/SideMenu/SideMenu";
 
 function App() {
   return (
     <>
-      <Menu />
+      <SideMenu />
     </>
   );
 }

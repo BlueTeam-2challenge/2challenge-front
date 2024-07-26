@@ -8,6 +8,7 @@
     align-items: center;
     padding: 1.5rem 0.5rem 1rem 1.5rem;
     gap: 1rem;
+    transition: width 0.5s ease
 }
 
 .navbar {
@@ -16,6 +17,17 @@
     flex-direction: column;
     gap: 0.5rem;
 }
+
+.logout {
+    display: flex;
+    justify-content: center;
+    align-content: flex-end;
+}
+
+.menuIcon {
+    display: none;
+}
+
 
 @media (max-width: 1300px) {
     .sidebar {
@@ -38,15 +50,40 @@
     }
 }
 
-@media (max-width: 600px) {
-    .sidebar {
-        width: 100%;
-        height: 7.5vh;
-        padding: 1rem;
-        flex-flow: wrap;
+@media (max-width: 685px) {
+    .menuIcon {
+        display: block;
+        position: fixed;
+        top: 3.25vh;
+        left: 4vw;
+        z-index: 1001;
+        cursor: pointer;
     }
 
-    .logout {
-        margin-top: 0;
+    .menuIcon:hover{
+        color: white;
     }
+
+    .hide {
+        display: none;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: 5vh;
+    }
+
+    .sideContent {
+        padding-top: 5rem;
+    }
+
+    .sidebar.side {
+        width: 40%;
+        height: 100vh;
+    }
+
+    .sidebar.nav .logout {
+        display: none;
+    }
+
 }
