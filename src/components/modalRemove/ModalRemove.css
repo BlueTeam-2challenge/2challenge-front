@@ -75,15 +75,35 @@
 
 @media (max-width: 767px) {
     .container-modal {
-        width: 100%;
+        width: auto;
         height: auto;
+        max-height: 100vh;
     }
 
     .text-modal {
         font-size: 0.8rem;
+        flex-wrap: wrap;
+        width: auto;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .subtitle {
+        flex-wrap: wrap;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     .btn-modal {
         font-size: 1.5rem;
+        flex-wrap: wrap;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #model-btn {
+        font-size: 1rem;
     }
 }
