@@ -1,0 +1,116 @@
+.container-overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    align-content: center;
+    display: flex;
+    justify-content: center;
+}
+
+.container-modal {
+    background-color: #EEE0CB;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border-radius: 1.25rem;
+    padding: auto;
+    width: 29.69rem;
+    height: 35.94rem;
+    gap: 1.69rem;
+    overflow-y: auto;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    padding-top: 2.5rem;
+}
+
+.container-input {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2.5rem 0 0 2.5rem;
+    gap: 2rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.container-input input {
+    font-family: "Montserrat";
+    font-weight: 500;
+    font-size: 0.88rem;
+    color: #CDCDCD;
+    width: 100%;
+    box-sizing: border-box;
+    width: 200%;
+    color: black;
+}
+
+input::placeholder {
+    font-family: "Montserrat";
+    font-weight: 400;
+    font-size: 0.75rem;
+    color: #CDCDCD;
+    opacity: 1;
+}
+
+.btn-modal {
+    display: flex;
+    flex-direction: row;
+    gap: 0.8rem;
+    padding: 1.75rem 2.5rem 1.75rem 2.5rem;
+    display: flex;
+    gap: 1rem;
+}
+
+#model-btn {
+    border-radius: 0.25rem;
+    padding: 0.81rem 1.32rem 0.81rem 1.32rem;
+    width: 11.94rem;
+    height: 2.75rem;
+    gap: 0.63rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Monstserrat";
+    font-weight: 500;
+    font-size: 0.88rem;
+    color: white;
+    cursor: pointer;
+}
+
+#model-btn:hover {
+    background-color: #26C485;
+}
+
+.reset {
+    background-color: #BAA898;
+}
+
+.add {
+    background-color: #26C485;
+}
+
+@media (max-width: 767px) {
+    .container-modal {
+        width: 100%;
+        height: auto;
+    }
+
+    .text-modal {
+        font-size: 0.8rem;
+        flex-wrap: wrap;
+    }
+
+    .btn-modal {
+        font-size: 1.5rem;
+        flex-wrap: wrap;
+    }
+}

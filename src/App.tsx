@@ -1,13 +1,12 @@
 import { useState } from "react";
-import ModalRemove from "./components/modalRemove/ModalRemove";
+import ModalInsert from "./components/modalInsert/ModalInsert";
 
 function App() {
 
-  {/* adicionar ao formulário a lógica - o botão no return será o botão de remover */ }
-  {/* lógica pode ser reutilizada para o modal de inserção */ }
+  {/* adicionar ao formulário a lógica - o botão no return será o botão de adicionar */ }
   const [openModal, setOpenModal] = useState(false);
 
-  const handleDelete = () => {
+  const handleInsert = () => {
     {/* lógica para o delete */ }
     setOpenModal(false);
   };
@@ -22,11 +21,11 @@ function App() {
 
   return (
     <>
-      <button onClick={handleOpenModal}>Excluir Item</button>
-      <ModalRemove
+      <button onClick={handleOpenModal}>Inserir Item</button>
+      <ModalInsert
         isOpen={openModal}
         onClose={handleCloseModal}
-        onConfirm={handleDelete} />
+        onConfirm={handleInsert} />
     </>
   );
 }
