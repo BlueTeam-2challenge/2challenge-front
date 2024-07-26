@@ -1,10 +1,32 @@
-import CardPage from "./pages/dashboard/components/CardPage";
+import { useState } from "react";
+import ModalRemove from "./components/modalRemove/ModalRemove";
 
 function App() {
+
+  {/* adicionar ao formulário a lógica - o botão no return será o botão de remover */ }
+  {/* lógica pode ser reutilizada para o modal de inserção */ }
+  const [openModal, setOpenModal] = useState(false);
+
+  const handleDelete = () => {
+    {/* lógica para o delete */ }
+    setOpenModal(false);
+  };
+
+  const handleOpenModal = () => {
+    setOpenModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setOpenModal(false);
+  };
+
   return (
     <>
-      <CardPage icon="src\assets\images\icone-pata.png" title="Animals" quantity={236} color="#F0F9FF" />
-      <CardPage icon="src\assets\images\cat-icon.png" title="Animals Without Owners" quantity={18} color="#FEF6FB" />
+      <button onClick={handleOpenModal}>Excluir Item</button>
+      <ModalRemove
+        isOpen={openModal}
+        onClose={handleCloseModal}
+        onConfirm={handleDelete} />
     </>
   );
 }

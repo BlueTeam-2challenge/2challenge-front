@@ -1,0 +1,29 @@
+.logoDefault {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 344px;
+  height: 39px;
+  padding-left: 13px;
+  border-left: 6px solid var(--color-primary);
+}
+
+.logoText {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.logoSmall {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 219px;
+  height: 24px;
+  padding-left: 13px;
+  border-left: 4px solid var(--color-primary);
+}
+
+.logoTextSmall {
+  font-size: 20px;
+  font-weight: bold;
+}

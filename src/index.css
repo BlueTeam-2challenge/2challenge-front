@@ -1,0 +1,18 @@
+:root {
+  --color-primary: #2bc587;
+  --color-secondary: #eee0cb;
+  --color-tertiary: #baa898;
+  --color-quaternary: #bfd7ea;
+  --color-black: #000;
+  --color-white: #fff;
+  --color-outline: #e5e5e5;
+  --color-text-input: #6c6c6c;
+  --font-family: "Montserrat";
+}
+
+body {
+  font-family: var(--font-family);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
