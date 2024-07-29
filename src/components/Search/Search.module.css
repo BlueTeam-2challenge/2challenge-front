@@ -1,0 +1,41 @@
+.searchWrapper {
+    width: 13.25rem;
+    height: 2.3rem;
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 0.3rem;
+    gap: 0.5rem;
+    border-radius: 8px;
+    border: 1px solid #E5E5E5;
+    opacity: 0.8;
+}
+
+.searchWrapper:hover{
+    opacity: 1;
+    border: 1px solid #a3a3a3;
+}
+
+.searchWrapper input{
+    border: none;
+    outline: 0;
+    font-family: "Montserrat";
+    color: #8d8d8d;
+    width: 75%;
+    height: 75%;
+}
+
+.search_btn{
+    color: #C4C4C4;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+}
+
+@media (max-width: 768px) {
+    .searchWrapper {
+        width: 100%;
+        max-width: 10rem;
+    }
+}
