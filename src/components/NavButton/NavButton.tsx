@@ -1,13 +1,13 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link, /*useLocation*/ } from 'react-router-dom';
 import './NavButton.css'
-import { ButtonLinkProps } from "../types";
+import { ButtonLinkProps } from "../../types";
 import { useState } from 'react'
 
 const NavButton = (props: ButtonLinkProps) => {
     const [hover, setHover] = useState(false)
-    const location = useLocation();
+    // const location = useLocation();
 
-    const isActive = location.pathname === props.to;
+    // const isActive = location.pathname === props.to;
 
     const buttonStyle = {
         backgroundColor: hover ? '#26C485' : '#EEE0CB',

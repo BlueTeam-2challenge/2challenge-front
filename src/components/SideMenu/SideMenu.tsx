@@ -1,5 +1,5 @@
 import { Logo } from "../Logo"
-import NavButton from "../NavButton"
+import NavButton from "../NavButton/NavButton"
 import UserProfile from "../UserProfile"
 import { BrowserRouter as Router } from 'react-router-dom';
 import styles from './SideMenu.module.css'
