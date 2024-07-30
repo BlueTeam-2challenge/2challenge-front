@@ -1,14 +1,14 @@
 .container {
   background-color: var(--color-background-ligthGray);
   overflow: hidden;
-  padding: 20px;
+  padding: 0 30px;
 }
 
 .table {
   width: 100%;
   border-collapse: separate;
   border-spacing: 0 20px;
-  overflow: hidden;
+  overflow-x: scroll;
 }
 
 .tableHeader {
@@ -76,4 +76,10 @@ tr:hover {
 .addButton:hover {
   font-weight: bold;
   background-color: var(--color-darkGreen);
+}
+
+@media screen and (max-width: 768px) {
+  .table {
+    overflow-x: auto;
+  }
 }

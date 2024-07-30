@@ -2,7 +2,6 @@
   box-sizing: border-box;
   background-color: #eee0cb;
   height: 100vh;
-  width: 17%;
   display: flex;
   flex-flow: column wrap;
   justify-content: space-between;

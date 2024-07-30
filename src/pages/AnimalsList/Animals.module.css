@@ -1,0 +1,13 @@
+.aside {
+  display: flex;
+  width: 100%;
+}
+.notAside {
+  width: 100%;
+}
+.header {
+  width: 100%;
+}
+.content {
+  width: 100%;
+}
