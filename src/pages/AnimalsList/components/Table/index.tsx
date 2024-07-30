@@ -1,25 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import UserProfile from "../../../../components/UserProfile";
 import styles from "./Table.module.css";
 import { Pen, Trash, PawPrint } from "lucide-react";
+import { TableProps, Animal } from "./types";
 
-const animals = [
-  {
-    name: "Chumbo",
-    description: "Weslley Silva",
-    breed: "Pit-Monster",
-    category: "Dog",
-    date: "08-Dec, 2021",
-  },
-  {
-    name: "Karthi",
-    description: "karthi@gmmail.com",
-    breed: "7305477760",
-    category: "1234567305477760",
-    date: "08-Dec, 2021",
-  },
-];
-export default function Table() {
+export default function Table(props: TableProps) {
+  const [animals, setAnimals] = useState<Animal[]>([]);
+
+  useEffect(() => {
+    async function loadAnimals() {
+      try {
+        const response = await fetch("http://localhost:3001/api/animals");
+        const data = await response.json();
+        setAnimals(data);
+      } catch (error) {
+        console.error("Error loading animals:", error);
+      }
+    }
+
+    loadAnimals();
+  }, []);
+
   return (
     <div className={styles.container}>
       <div className={styles.tableHeader}>
@@ -52,12 +53,15 @@ export default function Table() {
                 <td>{animal.description}</td>
                 <td>{animal.breed}</td>
                 <td>{animal.category}</td>
-                <td>{animal.date}</td>
+                <td>{animal.createdAt}</td>
                 <td>
-                  <button className={styles.editButton}>
+                  <button className={styles.editButton} onClick={props.onEdit}>
                     <Pen />
                   </button>
-                  <button className={styles.deleteButton}>
+                  <button
+                    className={styles.deleteButton}
+                    onClick={props.onDelete}
+                  >
                     <Trash />
                   </button>
                 </td>
