@@ -1,6 +1,6 @@
 import React from "react";
 import UserProfile from "../../../../components/UserProfile";
-import styles from "./Form.module.css";
+import styles from "./Table.module.css";
 import { Pen, Trash, PawPrint } from "lucide-react";
 
 const animals = [
@@ -19,7 +19,7 @@ const animals = [
     date: "08-Dec, 2021",
   },
 ];
-export default function Form() {
+export default function Table() {
   return (
     <div className={styles.container}>
       <div className={styles.tableHeader}>
@@ -30,43 +30,42 @@ export default function Form() {
         </button>
       </div>
       <hr />
-      <table className={styles.table}>
-        <thead>
-          <tr>
-            <th></th>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Breed</th>
-            <th>Category</th>
-            <th>Date of include</th>
-            <th colSpan={2}></th>
-          </tr>
-        </thead>
-        <tbody>
-          {animals.map((animal, index) => (
-            <tr key={index}>
-              <td>
-                <UserProfile name={animal.name} variant="small" />
-              </td>
-              <td>{animal.name}</td>
-              <td>{animal.description}</td>
-              <td>{animal.breed}</td>
-              <td>{animal.category}</td>
-              <td>{animal.date}</td>
-              <td>
-                <button className={styles.editButton}>
-                  <Pen />
-                </button>
-              </td>
-              <td>
-                <button className={styles.deleteButton}>
-                  <Trash />
-                </button>
-              </td>
+      <div className={styles.tableWrapper}>
+        <table className={styles.table}>
+          <thead>
+            <tr>
+              <th colSpan={2}>Name</th>
+              <th>Description</th>
+              <th>Breed</th>
+              <th>Category</th>
+              <th>Date of include</th>
+              <th colSpan={2}></th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {animals.map((animal, index) => (
+              <tr key={index}>
+                <td>
+                  <UserProfile name={animal.name} variant="small" />
+                </td>
+                <td>{animal.name}</td>
+                <td>{animal.description}</td>
+                <td>{animal.breed}</td>
+                <td>{animal.category}</td>
+                <td>{animal.date}</td>
+                <td>
+                  <button className={styles.editButton}>
+                    <Pen />
+                  </button>
+                  <button className={styles.deleteButton}>
+                    <Trash />
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }
