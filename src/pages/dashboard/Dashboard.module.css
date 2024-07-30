@@ -67,6 +67,6 @@
     flex-direction: column;
   }
   .notAside {
-    padding: 0;
+    padding: 10px;
   }
 }
