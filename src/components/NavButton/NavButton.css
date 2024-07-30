@@ -11,6 +11,12 @@
 
 .btn:hover {
     cursor: pointer;
+    width: 13rem;
+    transition: 0.5s;
+}
+
+.btn img:hover{
+    color: white;
 }
 
 .btn-iconPage {
@@ -19,16 +25,21 @@
 
 .btn-textPage {
     font-family: "Montserrat";
-    color: white;
+    color: black;
     font-weight: 500;
     font-size: 0.88rem;
     align-self: center;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 900px) {
     .btn {
-        width: 100%;
+        width: 5rem;
         height: auto;
+    }
+
+    .btn:hover {
+        width: 7.5rem;
+        height: 2.56rem;
     }
     
     .btn-textPage {
@@ -38,7 +49,6 @@
 
 @media (min-width: 768px) {
     .btn {
-        width: 12.06rem;
         height: 2.56rem;
     }
     
