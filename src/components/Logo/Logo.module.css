@@ -27,12 +27,21 @@
   font-size: 20px;
   font-weight: bold;
 }
-
-@media (max-width: 900px) {
-  .logoSmall{
+@media screen and (max-width: 1440px) {
+  .logoSmall {
     width: 180px;
+    height: 31px;
   }
   .logoTextSmall {
-    font-size: 16px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .logoSmall {
+    width: 150px;
+  }
+  .logoTextSmall {
+    font-size: 0.8rem;
   }
 }
