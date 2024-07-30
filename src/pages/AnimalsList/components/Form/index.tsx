@@ -39,7 +39,7 @@ export default function Form() {
             <th>Breed</th>
             <th>Category</th>
             <th>Date of include</th>
-            <th></th>
+            <th colSpan={2}></th>
           </tr>
         </thead>
         <tbody>
@@ -57,6 +57,8 @@ export default function Form() {
                 <button className={styles.editButton}>
                   <Pen />
                 </button>
+              </td>
+              <td>
                 <button className={styles.deleteButton}>
                   <Trash />
                 </button>
