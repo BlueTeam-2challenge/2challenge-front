@@ -1,12 +1,16 @@
 .card {
     padding: 1rem;
-    border-radius: 0.5rem;
+    gap: 1rem;
 }
 
 .mb-2 {
     border-radius: 0.5rem;
     width: 15.94rem;
     height: 9.81rem;
+    float: inline-start;
+    margin-right: 3rem;
+    margin-bottom: 1rem;
+    vertical-align: top;
 }
 
 .card-text {
@@ -28,6 +32,7 @@
     font-size: 1.8rem;
     text-align: end;
     margin-top: 0;
+    margin-bottom: 0;
 }
 
 @media (max-width: 767px) {
@@ -35,11 +40,11 @@
         width: 100%;
         height: auto;
     }
-    
+
     .card-title {
         font-size: 0.8rem;
     }
-    
+
     .card-quantity {
         font-size: 1.5rem;
     }
@@ -50,11 +55,11 @@
         width: 15.94rem;
         height: 9.81rem;
     }
-    
+
     .card-title {
         font-size: 0.9rem;
     }
-    
+
     .card-quantity {
         font-size: 1.8rem;
     }
