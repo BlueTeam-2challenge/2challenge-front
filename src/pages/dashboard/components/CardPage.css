@@ -1,66 +1,66 @@
 .card {
-    padding: 1rem;
-    gap: 1rem;
+  padding: 1rem;
+  gap: 1rem;
 }
 
 .mb-2 {
-    border-radius: 0.5rem;
-    width: 15.94rem;
-    height: 9.81rem;
-    float: inline-start;
-    margin-right: 3rem;
-    margin-bottom: 1rem;
-    vertical-align: top;
+  border-radius: 0.5rem;
+  width: 15.94rem;
+  height: 9.81rem;
+  float: inline-start;
+  margin-right: 3rem;
+  margin-bottom: 1rem;
+  vertical-align: top;
 }
 
 .card-text {
-    padding-top: 0.2rem;
+  padding-top: 0.2rem;
 }
 
 .card-title {
-    font-family: "Montserrat";
-    color: #6C6C6C;
-    font-weight: 400;
-    font-size: 0.9rem;
-    margin-top: 1rem;
+  font-family: "Montserrat";
+  color: #6c6c6c;
+  font-weight: 400;
+  font-size: 0.9rem;
+  margin-top: 1rem;
 }
 
 .card-quantity {
-    font-family: "Montserrat";
-    color: #000;
-    font-weight: 700;
-    font-size: 1.8rem;
-    text-align: end;
-    margin-top: 0;
-    margin-bottom: 0;
+  font-family: "Montserrat";
+  color: #000;
+  font-weight: 700;
+  font-size: 1.8rem;
+  text-align: end;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 @media (max-width: 767px) {
-    .mb-2 {
-        width: 100%;
-        height: auto;
-    }
+  .mb-2 {
+    width: 100%;
+    height: auto;
+  }
 
-    .card-title {
-        font-size: 0.8rem;
-    }
+  .card-title {
+    font-size: 0.8rem;
+  }
 
-    .card-quantity {
-        font-size: 1.5rem;
-    }
+  .card-quantity {
+    font-size: 1.5rem;
+  }
 }
 
 @media (min-width: 768px) {
-    .mb-2 {
-        width: 15.94rem;
-        height: 9.81rem;
-    }
+  .mb-2 {
+    width: 15.94rem;
+    height: 9.81rem;
+  }
 
-    .card-title {
-        font-size: 0.9rem;
-    }
+  .card-title {
+    font-size: 0.9rem;
+  }
 
-    .card-quantity {
-        font-size: 1.8rem;
-    }
+  .card-quantity {
+    font-size: 1.8rem;
+  }
 }

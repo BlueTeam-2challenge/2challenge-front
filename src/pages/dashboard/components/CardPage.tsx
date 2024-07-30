@@ -1,19 +1,16 @@
 import { Card, Col, Container } from "react-bootstrap";
-import './CardPage.css';
-import { CardProps } from './types';
+import "./CardPage.css";
+import { CardProps } from "./types";
 
 const CardPage = (props: CardProps) => {
-
   const cardColor = {
-    backgroundColor: props.color
-  }
+    backgroundColor: props.color,
+  };
 
   return (
     <div>
       <Container className="container">
-        <Col sm
-          className="mb-2"
-        >
+        <Col sm className="mb-2">
           <Card style={cardColor} className="card">
             <Card.Img
               className="card-icon"
@@ -23,7 +20,10 @@ const CardPage = (props: CardProps) => {
             />
             <Card.Body className="card-text">
               <Card.Title className="card-title">{props.title}</Card.Title>
-              <Card.Text className="card-quantity"> {props.quantity} </Card.Text>
+              <Card.Text className="card-quantity">
+                {" "}
+                {props.quantity}{" "}
+              </Card.Text>
             </Card.Body>
           </Card>
         </Col>

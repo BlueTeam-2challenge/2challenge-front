@@ -1,11 +1,16 @@
-import { createBrowserRouter, Route, Switch } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
+import AnimalList from "../pages/AnimalsList/components/Table";
+import Dashboard from "../pages/dashboard/Dashboard";
 
-function Root() {
+function Router() {
   return (
-    <>
-      <Sidebar />
-    </>
+    <div className="aside">
+      <Routes>
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/animals" element={<AnimalList />} />
+      </Routes>
+    </div>
   );
 }
 
-export default Root;
+export default Router;

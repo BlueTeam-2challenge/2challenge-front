@@ -1,4 +1,4 @@
 export interface SideMenuProps {
-    toggleMenu: () => void;
-    toggleHamburger: () => void;
+  toggleMenu?: () => void;
+  toggleHamburger?: () => void;
 }
