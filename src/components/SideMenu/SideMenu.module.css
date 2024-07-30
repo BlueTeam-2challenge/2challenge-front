@@ -1,17 +1,23 @@
 .sidebar {
-  box-sizing: border-box;
   background-color: #eee0cb;
+  width: 270px;
   height: 100vh;
   display: flex;
   flex-flow: column wrap;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem 0.5rem 1rem 1.5rem;
+  padding: 18px 25px;
   gap: 1rem;
   transition: 0.5s;
-  position: relative;
 }
-
+.sideContent {
+  display: flex;
+  width: 100%;
+  flex-flow: column wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
 .sidebar.sideHide {
   width: 2%;
 }
@@ -21,6 +27,7 @@
 }
 
 .navbar {
+  width: 100%;
   padding-top: 4rem;
   display: flex;
   flex-direction: column;
