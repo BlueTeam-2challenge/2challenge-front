@@ -7,14 +7,14 @@
 
 .tableWrapper {
   width: 100%;
-  overflow-x: auto; /* Adiciona scrollbar horizontal */
+  overflow-x: auto;
 }
 
 .table {
   width: 100%;
   border-collapse: separate;
   border-spacing: 0 20px;
-  min-width: 100%; /* Garante que a tabela ocupe no mínimo 100% da largura do contêiner */
+  min-width: 100%;
 }
 
 .tableHeader {
@@ -28,12 +28,14 @@ th {
   color: var(--color-text-tableHeader);
   padding: 20px 0;
   text-align: left;
-  min-width: 150px; /* Define uma largura mínima para as células */
+  min-width: 150px;
 }
+
 td {
   color: black;
   font-size: 14px;
 }
+
 td:first-child {
   align-self: center;
 }
@@ -58,12 +60,15 @@ hr {
   margin-top: 12px;
   border: 1px solid var(--color-outline);
 }
+
 th:first-child {
   text-align: center;
 }
+
 td:last-child {
   text-align: center;
 }
+
 .editButton {
   background: none;
   border: none;
@@ -105,4 +110,58 @@ td:last-child {
 .addButton:hover {
   font-weight: bold;
   background-color: var(--color-darkGreen);
+}
+
+@media (max-width: 767px) {
+
+  .tableHeader {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    flex-flow: column wrap;
+    gap: 0.75rem;
+  }
+
+  .addButton {
+    font-size: 1rem;
+  }
+
+  .tableWrapper {
+    width: 100%;
+    overflow-x: auto;
+    flex-flow: column wrap;
+    border-collapse: collapse;
+    height: auto;
+    overflow-y: auto;
+    max-height: 100vh;
+  }
+
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+    height: auto;
+  }
+
+  th,
+  td {
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.3rem 0.6rem;
+    border: none;
+    border-bottom: 1px solid #ddd;
+  }
+
 }
