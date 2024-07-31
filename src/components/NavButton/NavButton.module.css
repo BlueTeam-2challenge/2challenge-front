@@ -1,4 +1,3 @@
-
 .btn {
     border-radius: 0.25rem;
     width: 12.06rem;
@@ -7,6 +6,7 @@
     gap: 0.75rem;
     justify-content: center;
     align-items: center;
+    transition: all 0.3s ease;
 }
 
 .btn:hover {
@@ -15,15 +15,15 @@
     transition: 0.5s;
 }
 
-.btn img:hover{
+.btn img:hover {
     color: white;
 }
 
-.btn-iconPage {
+.btnIconPage {
     align-self: center;
 }
 
-.btn-textPage {
+.btnTextPage {
     font-family: "Montserrat";
     color: black;
     font-weight: 500;
@@ -32,26 +32,48 @@
 }
 
 @media (max-width: 900px) {
-    .btn {
-        width: 5rem;
-        height: auto;
+
+    .container {
+        width: 100%;
     }
 
-    .btn:hover {
-        width: 7.5rem;
-        height: 2.56rem;
+    .btn {
+        width: 10rem;
+        height: 2.5rem;
     }
-    
+
+    .btn-textPage {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 767px) {
+
+    .container {
+        width: 100%;
+    }
+
+    .btn {
+        width: 10rem;
+        height: 2.5rem;
+    }
+
     .btn-textPage {
         font-size: 0.8rem;
     }
 }
 
 @media (min-width: 768px) {
-    .btn {
-        height: 2.56rem;
+
+    .container {
+        width: 100%;
     }
-    
+
+    .btn {
+        width: 10rem;
+        height: 2.5rem;
+    }
+
     .btn-textPage {
         font-size: 0.88rem;
     }
