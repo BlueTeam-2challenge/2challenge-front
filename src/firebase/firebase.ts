@@ -52,10 +52,7 @@ const registerUserToMongo = async (
     );
     console.log("User registered successfully", response.data);
   } catch (err) {
-    console.error(
-      "Error registering user:",
-      err.response ? err.response.data : err.message
-    );
+    console.log(err);
   }
 };
 
@@ -99,10 +96,18 @@ const loginWithEmailAndPassword = async (email: string, password: string) => {
     console.log(error);
   }
 };
+const logout = async () => {
+  try {
+    await signOut(auth);
+  } catch (error) {
+    return error;
+  }
+};
 
 export {
   auth,
   signInWithGoogle,
   registerWithEmailAndPassword,
   loginWithEmailAndPassword,
+  logout,
 };
