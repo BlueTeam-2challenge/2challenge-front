@@ -1,38 +1,39 @@
 .signContainer {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.btn{
-    display: flex;
-    height: 2.6rem;
-    width: 25rem;
-    border: none;
-    gap: 1rem;
-    border-radius: 0.25rem;
-    justify-content: center;
-    align-self: center;
+.btn {
+  display: flex;
+  height: 2.6rem;
+  width: 25rem;
+  border: none;
+  gap: 1rem;
+  border-radius: 0.25rem;
+  justify-content: center;
+  align-items: center;
 }
 
-.btn:hover{
-    cursor: pointer;
+.btn:hover {
+  cursor: pointer;
 }
 
-.btnText{
-    font-family: "Montserrat";
-    color: white;
-    font-weight: 500;
-    font-size: 0.88rem;
-    display: flex;
+.btnText {
+  font-family: "Montserrat";
+  color: white;
+  font-weight: 500;
+  font-size: 0.88rem;
+  display: flex;
 }
 
 @media (max-width: 767px) {
-    .btn {
-        width: 60%;
-        height: auto;
-    }
-    
-    .btn-textPage {
-        font-size: 0.8rem;
-    }
+  .btn {
+    width: 60%;
+    height: auto;
+  }
+
+  .btn-textPage {
+    font-size: 0.8rem;
+  }
 }
