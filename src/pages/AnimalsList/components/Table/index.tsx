@@ -10,7 +10,9 @@ export default function Table(props: TableProps) {
   useEffect(() => {
     async function loadAnimals() {
       try {
-        const response = await fetch("http://localhost:3001/api/animals");
+        const response = await fetch(
+          `${import.meta.env.VITE_API_BASE_URL}/animals"`
+        );
         const data = await response.json();
         setAnimals(data);
       } catch (error) {
