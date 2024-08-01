@@ -7,12 +7,7 @@ import {
 import { User } from "../@types/User";
 import { AuthContextType } from "../@types/Auth";
 
-const defaultAuthContext: AuthContextType = {
-  user: null,
-  loading: true,
-};
-
-export const AuthContext = createContext<AuthContextType>(defaultAuthContext);
+export const AuthContext = createContext<AuthContextType>({ user: null });
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const auth = getAuth();
@@ -38,12 +33,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const authContextValue: AuthContextType = {
     user,
-    loading,
   };
 
   return (
     <AuthContext.Provider value={authContextValue}>
-      {children}
+      {!loading && children}
     </AuthContext.Provider>
   );
 }
