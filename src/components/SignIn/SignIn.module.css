@@ -7,7 +7,7 @@
 .btn {
   display: flex;
   height: 2.6rem;
-  width: 25rem;
+  width: 100%;
   border: none;
   gap: 1rem;
   border-radius: 0.25rem;

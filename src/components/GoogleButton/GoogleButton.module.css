@@ -6,6 +6,8 @@
 
 .btn {
   display: flex;
+  width: 100%;
+  justify-content: center;
   align-items: center;
   background-color: #ffffff;
   color: rgb(0, 0, 0);
@@ -24,7 +26,7 @@
 
 .icon {
   margin-right: 10px;
-  width: 20px; /* Ajuste o tamanho do ícone conforme necessário */
+  width: 20px;
   height: 20px;
 }
 

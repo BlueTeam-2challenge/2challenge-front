@@ -1,11 +1,39 @@
-import { Card, Container } from "react-bootstrap";
+import { Card, Container, Form, Button } from "react-bootstrap";
 import "./Loginpage.css";
 import { Logo } from "@components/Logo/index";
 import { TextInput } from "@components/TextInput/index";
 import SignIn from "@components/SignIn/SignIn";
 import GoogleButton from "@components/GoogleButton/GoogleButton";
+import {
+  loginWithEmailAndPassword,
+  signInWithGoogle,
+} from "@app/services/firebaseServices";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      await loginWithEmailAndPassword(email, password);
+      navigate("/dashboard");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleGoogleSignIn = async () => {
+    try {
+      await signInWithGoogle();
+      navigate("/dashboard");
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <Container className="container">
       <Card className="card" style={{ backgroundColor: "white" }}>
@@ -17,20 +45,11 @@ const LoginPage = () => {
           Enter your credentials to access your account
         </Card.Subtitle>
 
-        <TextInput
-          label="Email"
-          name="email"
-          type="email"
-          placeholder="Enter your email"
+        <SignIn label="SIGN IN" isActive />
+        <GoogleButton
+          onClick={handleGoogleSignIn}
+          label="SIGN IN WITH GOOGLE"
         />
-        <TextInput
-          label="Password"
-          name="passoword"
-          type="password"
-          placeholder="Enter your password"
-        />
-        <SignIn label="SIGN IN" isActive={true} />
-        <GoogleButton label="SIGN IN WITH GOOGLE" />
       </Card>
     </Container>
   );
