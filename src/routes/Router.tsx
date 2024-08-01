@@ -9,10 +9,10 @@ function Router() {
     <div className="aside">
       <Routes>
         <Route path="/login" element={<LoginLogic />} />
-        <ProtectedRoute>
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/animals" element={<Animals />} />
-        </ProtectedRoute>
+        <Route path="/" element={<ProtectedRoute />}>
+          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="animals" element={<Animals />} />
+        </Route>
       </Routes>
     </div>
   );

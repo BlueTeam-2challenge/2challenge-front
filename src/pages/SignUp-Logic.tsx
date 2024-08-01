@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { registerWithEmailAndPassword } from "../firebase/firebase";
+import { registerWithEmailAndPassword } from "@app/services/firebaseServices";
 
 export default function SignUp() {
   const [email, setEmail] = useState("");

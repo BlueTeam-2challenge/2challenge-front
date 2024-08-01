@@ -1,35 +1,12 @@
 import axios from "axios";
-import { initializeApp } from "firebase/app";
+import { auth, googleProvider, db } from "./firebaseConfig";
 import {
-  getAuth,
-  GoogleAuthProvider,
   signInWithPopup,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   signOut,
 } from "firebase/auth";
-import {
-  getFirestore,
-  getDocs,
-  query,
-  collection,
-  where,
-} from "firebase/firestore";
-
-const firebaseConfig = {
-  apiKey: import.meta.env.VITE_API_KEY,
-  authDomain: import.meta.env.VITE_AUTH_DOMAIN,
-  projectId: import.meta.env.VITE_PROJECT_ID,
-  storageBucket: import.meta.env.VITE_STORAGE_BUCKET,
-  messagingSenderId: import.meta.env.VITE_MESSAGING_SENDER_ID,
-  appId: import.meta.env.VITE_APP_ID,
-  measurementId: import.meta.env.VITE_MEASUREMENT_ID,
-};
-
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const db = getFirestore(app);
-const googleProvider = new GoogleAuthProvider();
+import { getDocs, query, collection, where } from "firebase/firestore";
 
 const registerUserToMongo = async (
   name: string | null,
@@ -39,16 +16,8 @@ const registerUserToMongo = async (
   try {
     const response = await axios.post(
       `${import.meta.env.VITE_API_BASE_URL}/register`,
-      {
-        uid,
-        name,
-        email,
-      },
-      {
-        headers: {
-          "Content-Type": "application/json", // Certifique-se de que o Content-Type está correto
-        },
-      }
+      { uid, name, email },
+      { headers: { "Content-Type": "application/json" } }
     );
     console.log("User registered successfully", response.data);
   } catch (err) {
@@ -96,6 +65,7 @@ const loginWithEmailAndPassword = async (email: string, password: string) => {
     console.log(error);
   }
 };
+
 const logout = async () => {
   try {
     await signOut(auth);
@@ -105,7 +75,6 @@ const logout = async () => {
 };
 
 export {
-  auth,
   signInWithGoogle,
   registerWithEmailAndPassword,
   loginWithEmailAndPassword,
