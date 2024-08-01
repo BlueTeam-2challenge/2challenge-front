@@ -1,12 +1,6 @@
-import { ReactNode } from "react";
-import { UserProps } from "./User";
+import { User } from "./User";
 
-export type AuthContextProviderProps = {
-  children?: ReactNode | undefined;
-};
-
-export type AuthContextType = {
-  currentUser: UserProps | undefined;
-  userLoggedIn: () => void;
-  loading: () => void;
-};
+export interface AuthContextType {
+  user: User | null;
+  loading: boolean;
+}
