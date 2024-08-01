@@ -1,10 +1,10 @@
-import Routes from "@routes/index";
+import Router from "@routes/Router";
 import { AuthProvider } from "@contexts/AuthContext";
 
 function App() {
   return (
     <AuthProvider>
-      <Routes />;
+      <Router />;
     </AuthProvider>
   );
 }

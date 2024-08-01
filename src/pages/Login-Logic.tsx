@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./SignUp.css";
 import axios from "axios";
 
 export default function Login() {

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./SignUp.css";
 import { registerWithEmailAndPassword } from "../firebase/firebase";
 
 export default function SignUp() {
