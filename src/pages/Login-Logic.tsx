@@ -1,22 +1,34 @@
 import React, { useState } from "react";
-import axios from "axios";
-import { signInWithGoogle } from "@services/firebaseServices";
+import {
+  signInWithGoogle,
+  loginWithEmailAndPassword,
+} from "@services/firebaseServices";
+import { useNavigate } from "react-router-dom";
+
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate(); // Obtém a função de navegação
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const userCredentials = await axios.post(
-        `${process.env.REACT_APP_API_URL}/login`,
-        { email, password }
-      );
-      console.log(userCredentials);
+      await loginWithEmailAndPassword(email, password);
+      navigate("/dashboard"); // Redireciona após o login bem-sucedido
     } catch (error) {
       console.log(error);
     }
   };
+
+  const handleGoogleSignIn = async () => {
+    try {
+      await signInWithGoogle();
+      navigate("/dashboard"); // Redireciona após o login com Google bem-sucedido
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="signupWrapper">
       <h1>Sign In</h1>
@@ -38,7 +50,7 @@ export default function Login() {
         <button type="submit">Submit</button>
       </form>
       <h2>Login com o Google</h2>
-      <button onClick={() => signInWithGoogle()}>Login com Google</button>
+      <button onClick={handleGoogleSignIn}>Login com Google</button>
     </div>
   );
 }
