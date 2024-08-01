@@ -10,7 +10,7 @@ function Router() {
       <Routes>
         <Route path="/login" element={<LoginLogic />} />
         <Route path="/" element={<ProtectedRoute />}>
-          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="/" element={<Dashboard />} />
           <Route path="animals" element={<Animals />} />
         </Route>
       </Routes>

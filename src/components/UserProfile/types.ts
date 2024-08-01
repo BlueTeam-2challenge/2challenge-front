@@ -1,4 +1,4 @@
 export interface UserProfileProps {
-  name: string;
+  name: string | null;
   variant?: "default" | "small";
 }
