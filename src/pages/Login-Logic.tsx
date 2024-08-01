@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-
+import { signInWithGoogle } from "@services/firebaseServices";
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -37,6 +37,8 @@ export default function Login() {
         />
         <button type="submit">Submit</button>
       </form>
+      <h2>Login com o Google</h2>
+      <button onClick={() => signInWithGoogle()}>Login com Google</button>
     </div>
   );
 }

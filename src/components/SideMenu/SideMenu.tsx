@@ -3,6 +3,7 @@ import NavButton from "../NavButton/NavButton";
 import UserProfile from "../UserProfile";
 import styles from "./SideMenu.module.css";
 import { SideMenuProps } from "./types";
+import { logout } from "@services/firebaseServices";
 
 const SideMenu = ({ menu }: SideMenuProps) => {
   return (
@@ -30,6 +31,7 @@ const SideMenu = ({ menu }: SideMenuProps) => {
           <NavButton
             to="/"
             label="Logout"
+            onClick={logout}
             icon="src\assets\images\logout-icon.png"
           />
         </div>
