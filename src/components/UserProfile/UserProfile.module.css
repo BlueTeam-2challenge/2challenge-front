@@ -43,15 +43,15 @@
   color: #000;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
   .userIcon {
-    width: 100px;
-    height: 100px;
+    width: 110px;
+    height: 110px;
   }
 
   .userIcon:hover {
-    width: 130px;
-    height: 130px;
+    width: 125px;
+    height: 125px;
     transition: 0.5s;
   }
 

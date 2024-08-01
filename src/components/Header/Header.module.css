@@ -37,7 +37,31 @@
   padding: 0 0 0 0.5rem;
 }
 
+@media screen and (max-width: 840px) {
+  .container {
+    padding-right: 5rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding-right: 30px;
+  }
+}
+
 @media screen and (max-width: 685px) {
-  .search {
+  .menuClosed .button {
+    background-color: #EEE0CB;
+  }
+  .menuClosed .menu {
+    position: fixed;
+    left: 40%;
+    top: 1rem;
+    z-index: 2;
+  }
+
+  .menuClosed .search {
+    margin-left: 1rem;
+    flex: 1;
   }
 }

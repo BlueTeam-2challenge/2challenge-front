@@ -35,7 +35,7 @@
   margin-bottom: 0;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .mb-2 {
     width: 100%;
     height: auto;

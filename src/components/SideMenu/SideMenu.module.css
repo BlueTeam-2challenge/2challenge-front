@@ -9,7 +9,9 @@
   padding: 18px 25px;
   gap: 1rem;
   transition: 0.5s;
+  z-index: 1000;
 }
+
 .sideContent {
   display: flex;
   width: 100%;
@@ -38,6 +40,7 @@
   display: flex;
   justify-content: center;
   align-content: flex-end;
+  width: 100%;
 }
 
 .menuIcon {
@@ -73,7 +76,7 @@
   }
 }
 
-@media (max-width: 685px) {
+@media (max-width: 768px) {
   .menuIcon {
     display: block;
     position: fixed;
@@ -89,14 +92,15 @@
   }
 
   .sidebar {
-    width: 100%;
+    width: 50%;
     height: 100vh;
+    bottom: auto;
   }
 
   .sidebar.side {
     box-sizing: border-box;
     width: 50%;
-    height: 100%;
+    height: 100vh;
   }
 
   .sidebar.nav .logout {
@@ -108,5 +112,13 @@
   }
   .sidebar.sideHide {
     display: none;
+  }
+}
+
+@media (max-width: 685px) {
+  .sidebar{
+    z-index: 1;
+    position: fixed; 
+    transition: 0.5s;
   }
 }

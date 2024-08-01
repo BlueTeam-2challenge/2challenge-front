@@ -40,11 +40,20 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .logoSmall {
     width: 150px;
+    padding-left: 7px;
   }
   .logoTextSmall {
-    font-size: 0.8rem;
+    font-size: 13px;
   }
 }
+
+@media (max-width: 768px) {
+
+  .logoTextSmall {
+    font-size: 12px;
+  }
+}
+
