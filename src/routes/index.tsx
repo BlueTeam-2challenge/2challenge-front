@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
-import Dashboard from "../pages/dashboard/Dashboard";
-import Animals from "../pages/AnimalsList/Animals";
-import LoginLogic from "../pages/Login-Logic";
+import Dashboard from "@pages/dashboard/Dashboard";
+import Animals from "@pages/AnimalsList/Animals";
+import LoginLogic from "@pages/Login-Logic";
 import ProtectedRoute from "./ProtectedRoute";
 
 function Router() {
