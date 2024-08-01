@@ -1,4 +1,4 @@
 export interface GoogleLoginButtonProps {
-    label: string;        
-      
-  }
+  label: string;
+  onClick: () => void;
+}
