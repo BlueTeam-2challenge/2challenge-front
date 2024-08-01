@@ -11,7 +11,7 @@ export default function Table(props: TableProps) {
     async function loadAnimals() {
       try {
         const response = await fetch(
-          `${import.meta.env.VITE_API_BASE_URL}/animals"`
+          `${import.meta.env.VITE_API_BASE_URL}/animals`
         );
         const data = await response.json();
         setAnimals(data);
@@ -46,8 +46,10 @@ export default function Table(props: TableProps) {
             </tr>
           </thead>
           <tbody>
-            {animals.map((animal, index) => (
-              <tr key={index}>
+            {animals.map((animal) => (
+              <tr key={animal.id}>
+                {" "}
+                {/* Assuming each animal has a unique 'id' */}
                 <td>
                   <UserProfile name={animal.name} variant="small" />
                 </td>
@@ -55,14 +57,19 @@ export default function Table(props: TableProps) {
                 <td>{animal.description}</td>
                 <td>{animal.breed}</td>
                 <td>{animal.category}</td>
-                <td>{animal.createdAt}</td>
                 <td>
-                  <button className={styles.editButton} onClick={props.onEdit}>
+                  {new Date(animal.createdAt).toLocaleDateString("pt-BR")}
+                </td>
+                <td>
+                  <button
+                    className={styles.editButton}
+                    onClick={() => props.onEdit}
+                  >
                     <Pen />
                   </button>
                   <button
                     className={styles.deleteButton}
-                    onClick={props.onDelete}
+                    onClick={() => props.onDelete}
                   >
                     <Trash />
                   </button>
