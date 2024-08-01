@@ -8,13 +8,13 @@ import { useNavigate } from "react-router-dom";
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate(); // Obtém a função de navegação
+  const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
       await loginWithEmailAndPassword(email, password);
-      navigate("/dashboard"); // Redireciona após o login bem-sucedido
+      navigate("/dashboard");
     } catch (error) {
       console.log(error);
     }
@@ -23,7 +23,7 @@ export default function Login() {
   const handleGoogleSignIn = async () => {
     try {
       await signInWithGoogle();
-      navigate("/dashboard"); // Redireciona após o login com Google bem-sucedido
+      navigate("/dashboard");
     } catch (error) {
       console.log(error);
     }
