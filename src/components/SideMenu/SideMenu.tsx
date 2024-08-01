@@ -35,7 +35,7 @@ const SideMenu = ({ menu }: SideMenuProps) => {
         </div>
         <div className={styles.logout}>
           <NavButton
-            to="/"
+            to="/login"
             label="Logout"
             onClick={logout}
             icon="src\assets\images\logout-icon.png"

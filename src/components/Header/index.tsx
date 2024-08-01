@@ -39,14 +39,14 @@ function Header(props: HeaderProps) {
   };
 
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} ${!menu ? styles.menuClosed : ""}`}>
       <div className={styles.menu} onClick={toggleMenu}>
         <button className={styles.button}>
           {menuBurger ? (
             menu ? (
               <Menu color="#C4C4C4" />
             ) : (
-              <X color="#C4C4C4" />
+              <X color="#999999" />
             )
           ) : menu ? (
             <CircleChevronRight color="#C4C4C4" />
