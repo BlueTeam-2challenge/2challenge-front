@@ -1,11 +1,16 @@
 import React, { useEffect, useState } from "react";
-import UserProfile from "../../../../components/UserProfile";
+import UserProfile from "@components/UserProfile";
 import styles from "./Table.module.css";
 import { Pen, Trash, PawPrint } from "lucide-react";
-import { TableProps, Animal } from "./types";
+import { Animal } from "./types";
+import ModalInsert from "@components/modalInsert/ModalInsert";
+import ModalRemove from "@components/modalRemove/ModalRemove";
 
-export default function Table(props: TableProps) {
+export default function Table() {
   const [animals, setAnimals] = useState<Animal[]>([]);
+  const [openModal, setOpenModal] = useState<boolean>(false);
+  const [openRemoveModal, setOpenRemoveModal] = useState<boolean>(false);
+  const [selectedAnimal, setSelectedAnimal] = useState<Animal | null>(null);
 
   useEffect(() => {
     async function loadAnimals() {
@@ -23,11 +28,45 @@ export default function Table(props: TableProps) {
     loadAnimals();
   }, []);
 
+  const handleOpenRemoveModal = (animal: Animal) => {
+    setSelectedAnimal(animal);
+    setOpenRemoveModal(true);
+  };
+
+  const handleCloseRemoveModal = () => {
+    setOpenRemoveModal(false);
+    setSelectedAnimal(null);
+  };
+
+  const handleConfirmRemove = async () => {
+    if (selectedAnimal) {
+      try {
+        await fetch(
+          `${import.meta.env.VITE_API_BASE_URL}/animals/${selectedAnimal.id}`,
+          {
+            method: "DELETE",
+          }
+        );
+        setAnimals((prev) =>
+          prev.filter((animal) => animal.id !== selectedAnimal.id)
+        );
+      } catch (error) {
+        console.error("Error deleting animal:", error);
+      }
+      handleCloseRemoveModal();
+    }
+  };
+
+  const handleEdit = (animal: Animal) => {
+    console.log("Edit", animal);
+    // Implemente a lógica para editar o animal aqui
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.tableHeader}>
         <h1 className={styles.title}>Animals List</h1>
-        <button className={styles.addButton}>
+        <button className={styles.addButton} onClick={() => setOpenModal(true)}>
           ADD NEW PET
           <PawPrint />
         </button>
@@ -48,8 +87,6 @@ export default function Table(props: TableProps) {
           <tbody>
             {animals.map((animal) => (
               <tr key={animal.id}>
-                {" "}
-                {/* Assuming each animal has a unique 'id' */}
                 <td>
                   <UserProfile name={animal.name} variant="small" />
                 </td>
@@ -63,13 +100,13 @@ export default function Table(props: TableProps) {
                 <td>
                   <button
                     className={styles.editButton}
-                    onClick={() => props.onEdit}
+                    onClick={() => handleEdit(animal)}
                   >
                     <Pen />
                   </button>
                   <button
                     className={styles.deleteButton}
-                    onClick={() => props.onDelete}
+                    onClick={() => handleOpenRemoveModal(animal)}
                   >
                     <Trash />
                   </button>
@@ -79,6 +116,21 @@ export default function Table(props: TableProps) {
           </tbody>
         </table>
       </div>
+
+      <ModalInsert
+        isOpen={openModal}
+        onClose={() => setOpenModal(false)}
+        onConfirm={() => {
+          console.log("Confirm");
+          setOpenModal(false);
+        }}
+      />
+
+      <ModalRemove
+        isOpen={openRemoveModal}
+        onClose={handleCloseRemoveModal}
+        onConfirm={handleConfirmRemove}
+      />
     </div>
   );
 }

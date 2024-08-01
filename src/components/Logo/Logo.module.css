@@ -11,7 +11,9 @@
 }
 
 .logoText {
-  font-size: 20px;
+  text-wrap: nowrap;
+  font-size: 32px;
+  color: black;
   font-weight: bold;
 }
 
