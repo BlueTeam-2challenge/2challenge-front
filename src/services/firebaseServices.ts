@@ -6,7 +6,7 @@ import {
   createUserWithEmailAndPassword,
   signOut,
 } from "firebase/auth";
-import { getDocs, query, collection, where } from "firebase/firestore";
+import { getDocs, query, collection, where, addDoc } from "firebase/firestore";
 
 const registerUserToMongo = async (
   name: string | null,
@@ -29,13 +29,19 @@ const signInWithGoogle = async () => {
   try {
     const response = await signInWithPopup(auth, googleProvider);
     const user = response.user;
-    const q = query(collection(db, "users"), where("uid", "==", user.uid));
+    const usersCollection = collection(db, "users");
+    const q = query(usersCollection, where("uid", "==", user.uid));
     const docs = await getDocs(q);
     if (docs.empty) {
+      addDoc(usersCollection, {
+        name: user.displayName,
+        uid: user.uid,
+        email: user.email,
+      });
       await registerUserToMongo(user.displayName, user.email, user.uid);
     }
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 };
 
