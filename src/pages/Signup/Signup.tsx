@@ -72,6 +72,7 @@ const SignupPage = () => {
       await registerWithEmailAndPassword(name, email, password);
       toast.success("Registration successful!");
       navigate("/");
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       if (error.code === "auth/email-already-in-use") {
         setEmailError("Email already in use");

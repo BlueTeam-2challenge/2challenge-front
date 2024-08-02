@@ -2,7 +2,8 @@ export type Animal = {
   id: string;
   name: string;
   description: string;
-  breed: string;
+  address: string;
   category: string;
   createdAt: string;
+  createdBy: string;
 };

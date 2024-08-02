@@ -20,10 +20,7 @@ const CardPage = (props: CardProps) => {
             />
             <Card.Body className="card-text">
               <Card.Title className="card-title">{props.title}</Card.Title>
-              <Card.Text className="card-quantity">
-                {" "}
-                {props.quantity}{" "}
-              </Card.Text>
+              <Card.Text className="card-quantity">{props.quantity}</Card.Text>
             </Card.Body>
           </Card>
         </Col>

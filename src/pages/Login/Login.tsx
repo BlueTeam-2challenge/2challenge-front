@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Card, Container } from "react-bootstrap";
 import styles from "./Login.module.css";
 import { Logo } from "@components/Logo/index";
@@ -20,6 +20,9 @@ const LoginPage = () => {
   const [passwordError, setPasswordError] = useState<string | null>(null);
   const navigate = useNavigate();
 
+  useEffect(() => {
+    document.title = "Login 🐶 - Challenge Compass";
+  }, []);
   const validateInputs = (): boolean => {
     let isValid = true;
     if (!email) {
@@ -51,7 +54,8 @@ const LoginPage = () => {
       await loginWithEmailAndPassword(email, password);
       toast.success("Login successful!");
       navigate("/");
-    } catch (error) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (error: any) {
       if (error.code === "auth/invalid-email") {
         setEmailError("Invalid email address");
         toast.error("Invalid email address.");
@@ -59,7 +63,6 @@ const LoginPage = () => {
         setPasswordError("Incorrect password");
         toast.error("Incorrect password.");
       } else {
-        console.error(error);
         toast.error("An error occurred. Please try again.");
       }
     }
@@ -71,7 +74,6 @@ const LoginPage = () => {
       toast.success("Signed in with Google successfully!");
       navigate("/");
     } catch (error) {
-      console.log(error);
       toast.error("An error occurred. Please try again.");
     }
   };
