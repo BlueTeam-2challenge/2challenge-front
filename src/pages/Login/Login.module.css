@@ -1,12 +1,9 @@
-body {
+.container {
   background: linear-gradient(
     to right,
     var(--color-darkGreen),
     var(--color-primary)
   );
-}
-
-.container {
   display: flex;
   justify-content: center;
   align-items: center;

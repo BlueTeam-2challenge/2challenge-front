@@ -7,11 +7,13 @@
   max-height: 100px;
   margin: 0 auto;
 }
+
 .inputLabel {
   margin-left: 4px;
   font-size: 14px;
   color: var(--color-text-input);
 }
+
 .textInput {
   padding: 14px 18px;
   border: 1px solid var(--color-outline);
@@ -46,6 +48,7 @@
   font-size: 0.8rem;
   font-weight: bold;
 }
+
 .textInput::placeholder {
   color: #cdcdcd;
 }

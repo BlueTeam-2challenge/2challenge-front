@@ -51,7 +51,6 @@ const registerWithEmailAndPassword = async (
       password
     );
     const user = response.user;
-    console.log(user.uid);
     await registerUserToMongo(name, email, user.uid);
   } catch (error) {
     console.log(error);

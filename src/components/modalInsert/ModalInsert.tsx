@@ -1,9 +1,9 @@
 import "./ModalInsert.css";
-import { modalRemoveProps } from "../modalRemove/types";
 import { Logo } from "../Logo";
 import { TextInput } from "../TextInput";
+import { ModalInsertProps } from "./types";
 
-const ModalInsert = ({ isOpen, onClose, onConfirm }: modalRemoveProps) => {
+const ModalInsert = ({ isOpen, onClose, onConfirm }: ModalInsertProps) => {
   if (!isOpen) return null;
 
   return (

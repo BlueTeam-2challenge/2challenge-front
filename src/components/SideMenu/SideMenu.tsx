@@ -19,6 +19,7 @@ const SideMenu = ({ menu }: SideMenuProps) => {
           <UserProfile
             variant="default"
             name={user ? user.displayName : null}
+            email={user ? user.email : null}
           />
           <div className={styles.navbar}>
             <NavButton
