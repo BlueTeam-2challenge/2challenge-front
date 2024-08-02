@@ -1,0 +1,88 @@
+body {
+  background: linear-gradient(
+    to right,
+    var(--color-darkGreen),
+    var(--color-primary)
+  );
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 25px;
+  width: 475px;
+  height: auto;
+  top: 175px;
+  background-color: white; /* Adiciona cor de fundo aqui, se necessário */
+}
+
+.cardTitle {
+  width: 330px;
+  top: 219px;
+}
+
+.cardText {
+  width: 87px;
+  height: 27px;
+  font-family: "Montserrat";
+  font-weight: 600;
+  font-size: 22px;
+  top: 301px;
+  margin: 0 auto;
+}
+
+.cardSubtitle {
+  display: flex;
+  justify-content: center;
+  top: 337px;
+  font-size: 0.875rem;
+  line-height: 1.063rem;
+  color: #6c6c6c;
+}
+
+.formWrapper {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 415px;
+  gap: 20px;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .card {
+    padding: 15px;
+  }
+  .cardTitle {
+    font-size: 1.7rem;
+    margin-bottom: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 10px;
+  }
+  .cardTitle {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  .cardText {
+    font-size: 1.25rem;
+    margin-bottom: 5px;
+  }
+  .cardSubtitle {
+    font-size: 0.75rem;
+    margin-bottom: 20px;
+  }
+}

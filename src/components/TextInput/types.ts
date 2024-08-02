@@ -1,7 +1,8 @@
+import { HTMLInputTypeAttribute } from "react";
 export interface TextInputProps {
   label: string;
   name: string;
-  type: string;
+  type: HTMLInputTypeAttribute;
   placeholder?: string;
   error?: string;
   onChange?: () => void;

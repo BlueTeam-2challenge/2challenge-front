@@ -14,7 +14,7 @@ export function TextInput(props: TextInputProps) {
         type={props.type}
         name={props.name}
         placeholder={props.placeholder}
-        onBlur={() => setError("Required Field")}
+        onBlur={props.onBlur}
         onChange={props.onChange}
         className={error ? styles.textInputError : styles.textInput}
       />

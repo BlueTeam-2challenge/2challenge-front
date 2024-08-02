@@ -1,5 +1,6 @@
-import { Card, Container, Form, Button } from "react-bootstrap";
-import "./Loginpage.css";
+import React, { useState } from "react";
+import { Card, Container } from "react-bootstrap";
+import styles from "./Login.module.css";
 import { Logo } from "@components/Logo/index";
 import { TextInput } from "@components/TextInput/index";
 import SignIn from "@components/SignIn/SignIn";
@@ -8,7 +9,6 @@ import {
   loginWithEmailAndPassword,
   signInWithGoogle,
 } from "@app/services/firebaseServices";
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
@@ -34,22 +34,36 @@ const LoginPage = () => {
       console.log(error);
     }
   };
+
   return (
-    <Container className="container">
-      <Card className="card" style={{ backgroundColor: "white" }}>
-        <Card.Title className="card-title">
-          <Logo variant="default" />
+    <Container className={styles.container}>
+      <Card className={styles.card}>
+        <Card.Title className={styles.cardTitle}>
+          <Logo variant={"default"} />
         </Card.Title>
-        <Card.Text className="card-text"> SIGN IN</Card.Text>
-        <Card.Subtitle className="card-subtitle">
+        <Card.Text className={styles.cardText}> SIGN IN</Card.Text>
+        <Card.Subtitle className={styles.cardSubtitle}>
           Enter your credentials to access your account
         </Card.Subtitle>
-
-        <SignIn label="SIGN IN" isActive />
-        <GoogleButton
-          onClick={handleGoogleSignIn}
-          label="SIGN IN WITH GOOGLE"
-        />
+        <div className={styles.formWrapper}>
+          <TextInput
+            label="Email"
+            name="email"
+            type="email"
+            placeholder="Enter your email"
+          />
+          <TextInput
+            label="Password"
+            name="password"
+            type="password"
+            placeholder="Enter your password"
+          />
+          <SignIn label="SIGN IN" isActive />
+          <GoogleButton
+            label="SIGN IN WITH GOOGLE"
+            onClick={handleGoogleSignIn}
+          />
+        </div>
       </Card>
     </Container>
   );

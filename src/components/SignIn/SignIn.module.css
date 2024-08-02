@@ -2,6 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 
 .btn {
@@ -25,15 +26,4 @@
   font-weight: 500;
   font-size: 0.88rem;
   display: flex;
-}
-
-@media (max-width: 767px) {
-  .btn {
-    width: 60%;
-    height: auto;
-  }
-
-  .btn-textPage {
-    font-size: 0.8rem;
-  }
 }

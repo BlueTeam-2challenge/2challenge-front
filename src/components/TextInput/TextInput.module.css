@@ -4,17 +4,16 @@
   font-weight: 500;
   gap: 10px;
   width: 100%;
-  max-width: 415px;
   max-height: 100px;
   margin: 0 auto;
 }
 .inputLabel {
+  margin-left: 4px;
   font-size: 14px;
   color: var(--color-text-input);
-  margin-bottom: 0.25rem;
 }
 .textInput {
-  padding: 0.5rem;
+  padding: 14px 18px;
   border: 1px solid var(--color-outline);
   border-radius: 4px;
   font-size: 12px;
@@ -26,6 +25,7 @@
 }
 
 .textInput:focus {
+  color: var(--color-primary);
   border: 1px solid var(--color-primary);
 }
 
@@ -47,6 +47,5 @@
   font-weight: bold;
 }
 .textInput::placeholder {
-  color: #CDCDCD;
-
+  color: #cdcdcd;
 }
