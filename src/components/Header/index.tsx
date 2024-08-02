@@ -19,7 +19,7 @@ function Header(props: HeaderProps) {
 
   useEffect(() => {
     const isMobile = () => {
-      if (window.innerWidth <= 685) {
+      if (window.innerWidth <= 1024) {
         setHamburger(true);
       } else {
         setHamburger(false);

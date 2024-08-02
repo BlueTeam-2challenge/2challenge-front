@@ -18,7 +18,7 @@
   width: 475px;
   height: auto;
   top: 175px;
-  background-color: white; /* Adiciona cor de fundo aqui, se necessário */
+  background-color: white;
 }
 
 .cardTitle {
@@ -27,8 +27,8 @@
 }
 
 .cardText {
-  width: 87px;
-  height: 27px;
+  width: 6rem;
+  height: 1.68;
   font-family: "Montserrat";
   font-weight: 600;
   font-size: 22px;

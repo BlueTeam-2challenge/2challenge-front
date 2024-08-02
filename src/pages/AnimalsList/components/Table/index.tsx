@@ -13,7 +13,7 @@ export default function Table() {
   const [openModal, setOpenModal] = useState<boolean>(false);
   const [openRemoveModal, setOpenRemoveModal] = useState<boolean>(false);
   const [selectedAnimal, setSelectedAnimal] = useState<Animal | null>(null);
-  const { user } = useContext(AuthContext); // Ensure you have the user context
+  const { user } = useContext(AuthContext);
 
   useEffect(() => {
     async function loadAnimals() {
@@ -90,7 +90,6 @@ export default function Table() {
 
   const handleEdit = (animal: Animal) => {
     console.log("Edit", animal);
-    // Implement edit logic here
   };
 
   return (

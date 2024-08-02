@@ -37,25 +37,23 @@
   padding: 0 0 0 0.5rem;
 }
 
-@media screen and (max-width: 840px) {
-  .container {
-    padding-right: 5rem;
+@media screen and (max-width: 1024px) {
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
   }
-}
 
-@media screen and (max-width: 768px) {
-  .container {
-    padding-right: 30px;
-  }
-}
-
-@media screen and (max-width: 685px) {
   .menuClosed .button {
-    background-color: #EEE0CB;
+    animation: fadeIn 0.5s ease-in-out;
+    background-color: transparent;
   }
   .menuClosed .menu {
     position: fixed;
-    left: 40%;
+    left: 25%;
     top: 1rem;
     z-index: 2;
   }

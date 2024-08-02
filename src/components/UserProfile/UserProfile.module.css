@@ -38,6 +38,7 @@
 }
 
 .userName {
+  text-align: center;
   font-size: 17px;
   font-weight: bold;
   color: #000;

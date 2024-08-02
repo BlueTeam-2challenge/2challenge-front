@@ -1,6 +1,7 @@
 .card {
   padding: 1rem;
   gap: 1rem;
+  border-radius: 0.5rem;
 }
 
 .mb-2 {

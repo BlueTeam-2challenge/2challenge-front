@@ -76,7 +76,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .menuIcon {
     display: block;
     position: fixed;
@@ -92,9 +92,11 @@
   }
 
   .sidebar {
-    width: 50%;
+    width: 30%;
     height: 100vh;
     bottom: auto;
+    z-index: 1;
+    position: fixed; 
   }
 
   .sidebar.side {
@@ -112,13 +114,5 @@
   }
   .sidebar.sideHide {
     display: none;
-  }
-}
-
-@media (max-width: 685px) {
-  .sidebar{
-    z-index: 1;
-    position: fixed; 
-    transition: 0.5s;
   }
 }
