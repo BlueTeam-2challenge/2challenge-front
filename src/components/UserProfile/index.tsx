@@ -1,13 +1,7 @@
-import React, { useContext } from "react";
 import styles from "./UserProfile.module.css";
 import { UserProfileProps } from "./types";
-import { AuthContext } from "@app/contexts/AuthContext";
 
-const UserProfile = ({ variant }: UserProfileProps) => {
-  const { user } = useContext(AuthContext);
-  const email = user?.email || "";
-  const name = user?.displayName || "";
-
+const UserProfile = ({ name = "", variant }: UserProfileProps) => {
   const getInitials = (text: string) => {
     if (!text) return "";
 
@@ -31,11 +25,9 @@ const UserProfile = ({ variant }: UserProfileProps) => {
           variant === "default" ? styles.userIcon : styles.userIconSmall
         }
       >
-        {getInitials(name || email)}
+        {getInitials(name)}
       </div>
-      {variant === "default" && (
-        <div className={styles.userName}>{name || email}</div>
-      )}
+      {variant === "default" && <div className={styles.userName}>{name}</div>}
     </div>
   );
 };

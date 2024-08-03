@@ -1,3 +1,5 @@
+import { AuthContext } from "@app/contexts/AuthContext";
+import { useContext } from "react";
 import { Logo } from "../Logo";
 import NavButton from "../NavButton/NavButton";
 import UserProfile from "../UserProfile";
@@ -6,6 +8,8 @@ import { SideMenuProps } from "./types";
 import { logout } from "@app/services/firebaseServices";
 
 const SideMenu = ({ menu }: SideMenuProps) => {
+  const { user } = useContext(AuthContext);
+  const displayName = user?.displayName ?? user?.email ?? undefined;
   return (
     <>
       <div className={`${styles.sidebar} ${menu ? styles.sideHide : ""}`}>
@@ -13,7 +17,7 @@ const SideMenu = ({ menu }: SideMenuProps) => {
           className={`${styles.sideContent} ${menu ? styles.contentHide : ""}`}
         >
           <Logo variant="small" />
-          <UserProfile variant="default" />
+          <UserProfile variant="default" name={displayName} />
           <div className={styles.navbar}>
             <NavButton
               to="/"

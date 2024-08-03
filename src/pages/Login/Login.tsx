@@ -22,6 +22,7 @@ const LoginPage = () => {
       await loginWithEmailAndPassword(data.email, data.password);
       toast.success("Logged in successfully!", {
         position: "top-center",
+        autoClose: 1500,
       });
       setTimeout(() => {
         navigate("/");
