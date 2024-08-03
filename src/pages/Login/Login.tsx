@@ -35,15 +35,14 @@ const LoginPage = () => {
   };
 
   const handleGoogleSignIn = async () => {
-    const response = await signInWithGoogle();
-    console.log(response);
+    await signInWithGoogle();
     toast.success("Signed in with Google successfully!", {
       position: "top-center",
-      autoClose: 2000,
+      autoClose: 1500,
     });
     setTimeout(() => {
       navigate("/");
-    }, 2000);
+    }, 3000);
   };
 
   useEffect(() => {

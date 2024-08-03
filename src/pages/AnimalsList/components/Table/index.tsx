@@ -6,7 +6,12 @@ import { Animal } from "./types";
 import ModalInsert from "@components/modalInsert/ModalInsert";
 import ModalRemove from "@components/modalRemove/ModalRemove";
 import { AuthContext } from "@app/contexts/AuthContext";
-import axios from "axios";
+import {
+  createAnimal,
+  deleteAnimal,
+  getAllAnimalsByUserId,
+} from "@services/animalService";
+import { AnimalSchema } from "@app/schemas/animalFormSchema";
 
 export default function Table() {
   const [animals, setAnimals] = useState<Animal[]>([]);
@@ -17,50 +22,21 @@ export default function Table() {
 
   useEffect(() => {
     async function loadAnimals() {
-      try {
-        const response = await fetch(
-          `${import.meta.env.VITE_API_BASE_URL}/animals/user/${user?.uid}`
-        );
-        const data = await response.json();
-        setAnimals(data);
-      } catch (error) {
-        console.error("Error loading animals:", error);
+      if (user?.uid) {
+        try {
+          const response = await getAllAnimalsByUserId(user.uid);
+          if (!response) {
+            setAnimals([]);
+          }
+          setAnimals(response);
+        } catch (error) {
+          console.error("Error loading animals:", error);
+        }
       }
     }
     document.title = "Animals List 🐶 - Challenge Compass";
     loadAnimals();
-  }, []);
-
-  const handleAddAnimal = async (newAnimal: {
-    petName: string;
-    description: string;
-    address: string;
-    category: string;
-  }) => {
-    const animalData = {
-      name: newAnimal.petName,
-      description: newAnimal.description,
-      address: newAnimal.address,
-      category: newAnimal.category,
-      createdBy: user?.uid,
-    };
-
-    try {
-      const response = await axios.post(
-        `${import.meta.env.VITE_API_BASE_URL}/animals`,
-        animalData,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-      const addedAnimal = response.data;
-      setAnimals([...animals, addedAnimal]);
-    } catch (error) {
-      console.error("Error adding animal:", error);
-    }
-  };
+  }, [user]);
 
   const handleOpenRemoveModal = (animal: Animal) => {
     setSelectedAnimal(animal);
@@ -75,9 +51,7 @@ export default function Table() {
   const handleConfirmRemove = async () => {
     if (selectedAnimal) {
       try {
-        await axios.delete(
-          `${import.meta.env.VITE_API_BASE_URL}/animals/${selectedAnimal.id}`
-        );
+        await deleteAnimal(selectedAnimal.id);
         setAnimals((prev) =>
           prev.filter((animal) => animal.id !== selectedAnimal.id)
         );
@@ -85,6 +59,16 @@ export default function Table() {
         console.error("Error deleting animal:", error);
       }
       handleCloseRemoveModal();
+    }
+  };
+
+  const handleAddAnimal = async (newAnimal: AnimalSchema) => {
+    try {
+      const response = await createAnimal(newAnimal);
+      setAnimals([...animals, response.data]);
+      setOpenModal(false);
+    } catch (error) {
+      console.error("Error adding animal:", error);
     }
   };
 
@@ -100,12 +84,6 @@ export default function Table() {
           ADD NEW PET
           <PawPrint />
         </button>
-
-        <ModalInsert
-          isOpen={openModal}
-          onClose={() => setOpenModal(false)}
-          onConfirm={handleAddAnimal}
-        />
       </div>
       <hr />
       <div className={styles.tableWrapper}>
@@ -152,6 +130,12 @@ export default function Table() {
           </tbody>
         </table>
       </div>
+
+      <ModalInsert
+        isOpen={openModal}
+        onClose={() => setOpenModal(false)}
+        onConfirm={handleAddAnimal}
+      />
 
       <ModalRemove
         isOpen={openRemoveModal}
