@@ -1,85 +1,81 @@
 .container {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .btn {
-    border-radius: 0.25rem;
-    width: 12.06rem;
-    height: 2.56rem;
-    display: flex;
-    gap: 0.75rem;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.3s ease;
+  border-radius: 0.25rem;
+  width: 12.06rem;
+  height: 2.56rem;
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
 }
 
 .btn:hover {
-    cursor: pointer;
-    width: 12.5rem;
-    transition: 0.5s;
+  cursor: pointer;
+  transition: 0.5s;
 }
 
 .btn img:hover {
-    color: white;
+  color: white;
 }
 
 .btnIconPage {
-    align-self: center;
+  align-self: center;
 }
 
 .btnTextPage {
-    font-family: "Montserrat";
-    color: black;
-    font-weight: 500;
-    font-size: 0.88rem;
-    align-self: center;
+  font-family: "Montserrat";
+  color: black;
+  font-weight: 500;
+  font-size: 0.88rem;
+  align-self: center;
 }
 
 @media (max-width: 900px) {
+  .container {
+    width: 100%;
+  }
 
-    .container {
-        width: 100%;
-    }
+  .btn {
+    width: 10rem;
+    height: 2.5rem;
+  }
 
-    .btn {
-        width: 10rem;
-        height: 2.5rem;
-    }
-
-    .btn-textPage {
-        font-size: 0.8rem;
-    }
+  .btn-textPage {
+    font-size: 0.8rem;
+  }
 }
 
 @media (max-width: 767px) {
+  .container {
+    width: 100%;
+  }
 
-    .container {
-        width: 100%;
-    }
+  .btn {
+    width: 10rem;
+    height: 2.5rem;
+  }
 
-    .btn {
-        width: 10rem;
-        height: 2.5rem;
-    }
-
-    .btn-textPage {
-        font-size: 0.8rem;
-    }
+  .btn-textPage {
+    font-size: 0.8rem;
+  }
 }
 
 @media (min-width: 768px) {
+  .container {
+    width: 100%;
+  }
 
-    .container {
-        width: 100%;
-    }
+  .btn {
+    width: 10rem;
+    height: 2.5rem;
+  }
 
-    .btn {
-        width: 10rem;
-        height: 2.5rem;
-    }
-
-    .btn-textPage {
-        font-size: 0.88rem;
-    }
+  .btn-textPage {
+    font-size: 0.88rem;
+  }
 }
