@@ -4,8 +4,8 @@ import NavButton from "../NavButton/NavButton";
 import UserProfile from "../UserProfile";
 import styles from "./SideMenu.module.css";
 import { SideMenuProps } from "./types";
-import { logout } from "@services/firebaseServices";
 import { AuthContext } from "@app/contexts/AuthContext";
+import { logout } from "@app/services/firebaseServices";
 
 const SideMenu = ({ menu }: SideMenuProps) => {
   const { user } = useContext(AuthContext);

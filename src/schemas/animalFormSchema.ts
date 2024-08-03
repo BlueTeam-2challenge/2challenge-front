@@ -24,4 +24,4 @@ export const animalFormSchema = z.object({
     }),
   location: LocationSchema,
 });
-export type Animal = z.infer<typeof animalFormSchema>;
+export type AnimalSchema = z.infer<typeof animalFormSchema>;

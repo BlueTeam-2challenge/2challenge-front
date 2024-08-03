@@ -1,10 +1,11 @@
 import axios from "axios";
-import { auth, googleProvider, db } from "./firebaseConfig";
+import { auth, googleProvider, db } from "@services/firebaseConfig";
 import {
   signInWithPopup,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   signOut,
+  signInWithRedirect,
 } from "firebase/auth";
 import { getDocs, query, collection, where, addDoc } from "firebase/firestore";
 
@@ -40,8 +41,10 @@ const signInWithGoogle = async () => {
       });
       await registerUserToMongo(user.displayName, user.email, user.uid);
     }
+    return user;
   } catch (error) {
-    console.error(error);
+    console.error("Error signing in with Google:", error);
+    throw error; // Re-throw error to be caught in the calling function
   }
 };
 
@@ -67,7 +70,7 @@ const loginWithEmailAndPassword = async (email: string, password: string) => {
   try {
     await signInWithEmailAndPassword(auth, email, password);
   } catch (error) {
-    console.log(error);
+    return error;
   }
 };
 
@@ -75,7 +78,7 @@ const logout = async () => {
   try {
     await signOut(auth);
   } catch (error) {
-    return error;
+    console.error("Error logging out: ", error);
   }
 };
 
