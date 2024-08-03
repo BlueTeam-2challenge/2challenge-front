@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { Card, Container } from "react-bootstrap";
 import styles from "./Signup.module.css";
 import { Logo } from "@components/Logo/index";
@@ -8,16 +7,30 @@ import {
   signInWithGoogle,
   registerWithEmailAndPassword,
 } from "@app/services/firebaseServices";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import { UserSchema } from "@app/schemas/userFormSchema";
 import { useUserForm } from "@app/hooks/useForms";
 
 const SignupPage = () => {
+  const navigate = useNavigate();
   const { register, handleSubmit, errors } = useUserForm();
 
-  const onSubmit = (data: UserSchema) => {
-    console.log(data);
+  const onSubmit = async (data: UserSchema) => {
+    try {
+      await registerWithEmailAndPassword(data.name, data.email, data.password);
+      toast.success("SignUp in successfully!", {
+        position: "top-center",
+        autoClose: 1500,
+      });
+      setTimeout(() => {
+        navigate("/");
+      }, 2000);
+    } catch (error) {
+      toast.error("An error occurred. Please try again.", {
+        position: "bottom-center",
+      });
+    }
   };
 
   const handleGoogleSignIn = async () => {

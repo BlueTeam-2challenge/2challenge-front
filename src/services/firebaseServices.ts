@@ -5,7 +5,6 @@ import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   signOut,
-  signInWithRedirect,
 } from "firebase/auth";
 import { getDocs, query, collection, where, addDoc } from "firebase/firestore";
 

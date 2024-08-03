@@ -18,7 +18,6 @@ const LoginPage = () => {
   const navigate = useNavigate();
   const { register, handleSubmit, errors } = useLoginForm();
   const onSubmit = async (data: LoginSchema) => {
-    console.log(data);
     try {
       await loginWithEmailAndPassword(data.email, data.password);
       toast.success("Logged in successfully!", {
@@ -35,19 +34,15 @@ const LoginPage = () => {
   };
 
   const handleGoogleSignIn = async () => {
-    console.log("Google Sign In");
-    try {
-      const response = await signInWithGoogle();
-      console.log(response);
-      setTimeout(() => {
-        toast.success("Signed in with Google successfully!");
-      }, 2000);
+    const response = await signInWithGoogle();
+    console.log(response);
+    toast.success("Signed in with Google successfully!", {
+      position: "top-center",
+      autoClose: 2000,
+    });
+    setTimeout(() => {
       navigate("/");
-    } catch (error) {
-      toast.error("An error occurred. Please try again.", {
-        position: "bottom-center",
-      });
-    }
+    }, 2000);
   };
 
   useEffect(() => {
@@ -64,7 +59,11 @@ const LoginPage = () => {
         <Card.Subtitle className={styles.cardSubtitle}>
           Enter your credentials to access your account
         </Card.Subtitle>
-        <form className={styles.formWrapper} method="POST">
+        <form
+          className={styles.formWrapper}
+          method="POST"
+          onSubmit={handleSubmit(onSubmit)}
+        >
           <input
             type="email"
             id="email"
