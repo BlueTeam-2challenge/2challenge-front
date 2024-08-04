@@ -1,17 +1,21 @@
 .container {
   width: 100%;
   height: 100%;
+  overflow: auto;
+  scrollbar-color: #26c485 #eee0cb;
+  scrollbar-width: thin;
+  scroll-behavior: smooth;
   background-color: var(--color-background-ligthGray);
   padding: 8px 30px;
 }
 
 .tableWrapper {
   width: 100%;
-  overflow-x: auto;
 }
 
 .table {
   width: 100%;
+  height: 100%;
   border-collapse: separate;
   border-spacing: 0 20px;
   min-width: 100%;
@@ -105,4 +109,92 @@ td:last-child {
 .addButton:hover {
   font-weight: bold;
   background-color: var(--color-darkGreen);
+}
+
+.btnModal {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.modelBtn {
+  border-radius: 0.25rem;
+  padding: 0.81rem 1.32rem;
+  width: 11.94rem;
+  height: 2.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  border: none;
+  font-size: 0.88rem;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.modelBtn:hover {
+  background-color: #26c485;
+}
+
+.reset {
+  background-color: #baa898;
+}
+
+.add {
+  background-color: #26c485;
+}
+
+.formCreate {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  height: 100%;
+}
+h2 {
+  text-align: center;
+}
+
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputLabel {
+  margin-bottom: 0.5rem;
+}
+
+select,
+input,
+textarea {
+  width: 100%;
+  color: var(--color-text-input);
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+}
+
+textarea {
+  resize: none;
+  height: 6rem;
+  scrollbar-width: thin;
+  scrollbar-color: #26c485 #eee0cb;
+}
+
+option:hover {
+  background-color: #26c485;
+}
+
+@media screen and (max-width: 425px) {
+  .addButton {
+    min-width: 80px;
+    justify-content: center; /* Centralize o ícone */
+  }
+
+  .addButton span {
+    display: none; /* Oculta o texto do botão */
+  }
 }

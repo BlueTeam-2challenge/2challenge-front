@@ -1,23 +1,22 @@
-import React from "react";
 import styles from "./UserProfile.module.css";
 import { UserProfileProps } from "./types";
 
-const UserProfile = ({
-  name,
-  email,
-  variant = "default",
-}: UserProfileProps) => {
+const UserProfile = ({ name = "", variant }: UserProfileProps) => {
   const getInitials = (text: string) => {
     if (!text) return "";
+
+    const atIndex = text.indexOf("@");
+    if (atIndex !== -1) {
+      text = text.slice(0, atIndex);
+    }
+
     const names = text.trim().split(/\s+/);
     const initials = names.map((n) => n[0]).join("");
-    if (initials.length > 3) {
-      return initials[0] + initials[initials.length - 1];
-    }
-    return initials.toUpperCase();
-  };
 
-  const displayText = name || email || "User";
+    return initials.length > 3
+      ? initials[0] + initials[initials.length - 1]
+      : initials.toUpperCase();
+  };
 
   return (
     <div className={styles.userProfile}>
@@ -26,11 +25,9 @@ const UserProfile = ({
           variant === "default" ? styles.userIcon : styles.userIconSmall
         }
       >
-        {getInitials(name || email || "")}
+        {getInitials(name)}
       </div>
-      {variant === "default" && (
-        <div className={styles.userName}>{displayText}</div>
-      )}
+      {variant === "default" && <div className={styles.userName}>{name}</div>}
     </div>
   );
 };

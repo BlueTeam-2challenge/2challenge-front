@@ -13,12 +13,12 @@ function Animals() {
   return (
     <div>
       <div className={styles.aside}>
-        <SideMenu menu={menu} />
+        <SideMenu menu={menu} toggleMenu={toggleMenu} />
         <div className={styles.notAside}>
-          <div className={styles.header}>
-            <Header searchPlaceholder="Search..." action={toggleMenu} />
-          </div>
           <section className={styles.content}>
+            <div className={styles.header}>
+              <Header searchPlaceholder="Search..." action={toggleMenu} />
+            </div>
             <Table />
           </section>
         </div>

@@ -4,11 +4,15 @@
 }
 .notAside {
   width: 100%;
+  height: calc(100vh - 3.75rem);
 }
 .header {
   width: 100%;
 }
 .content {
   width: 100%;
-  height: calc(100vh - 3.75rem);
+}
+.container {
+  padding: 2rem;
+  overflow: hidden;
 }

@@ -4,6 +4,7 @@ import Animals from "@pages/AnimalsList/Animals";
 import Login from "@pages/Login/Login";
 import ProtectedRoute from "./ProtectedRoute";
 import SignupPage from "@app/pages/Signup/Signup";
+import AnimalsLocation from "@app/pages/AnimalsLocation/AnimalsLocation";
 
 function Router() {
   return (
@@ -14,6 +15,7 @@ function Router() {
         <Route element={<ProtectedRoute />}>
           <Route path="/" element={<Dashboard />} />
           <Route path="animals" element={<Animals />} />
+          <Route path="locations" element={<AnimalsLocation />} />
         </Route>
       </Routes>
     </div>

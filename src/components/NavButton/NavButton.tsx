@@ -10,7 +10,7 @@ const NavButton = (props: ButtonLinkProps) => {
   const isActive = location.pathname === props.to;
 
   const buttonStyle = {
-    backgroundColor: (isActive || hover) ? "#26C485" : "#EEE0CB",
+    backgroundColor: isActive || hover ? "#26C485" : "#EEE0CB",
     textDecoration: "none",
     cursor: "pointer",
   };
@@ -21,21 +21,30 @@ const NavButton = (props: ButtonLinkProps) => {
         to={props.to}
         style={buttonStyle}
         className={styles.btn}
+        onClick={props.onClick}
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
       >
         {props.label === "Logout" ? (
           <>
             <p className={styles.btnTextPage}>{props.label}</p>
-            <img src={props.icon} alt="page-icon" className={styles.btnIconPage} />
+            <img
+              src={props.icon}
+              alt="page-icon"
+              className={styles.btnIconPage}
+            />
           </>
         ) : (
           <>
-            <img src={props.icon} alt="page-icon" className={styles.btnIconPage} />
+            <img
+              src={props.icon}
+              alt="page-icon"
+              className={styles.btnIconPage}
+            />
             <p className={styles.btnTextPage}>{props.label}</p>
           </>
         )}
-      </Link >
+      </Link>
     </div>
   );
 };
