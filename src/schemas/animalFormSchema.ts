@@ -14,7 +14,7 @@ export const animalFormSchema = z.object({
     .string()
     .min(10, "Description needs to be longer than 10 characters")
     .max(500),
-  address: z.string().min(2).max(200),
+  address: z.string().min(3, "Enter a Valid Address").max(200),
   category: z
     .string()
     .min(2)
@@ -23,5 +23,6 @@ export const animalFormSchema = z.object({
       message: "Please select a category",
     }),
   location: LocationSchema,
+  createdBy: z.string().min(2, "Enter a valid user"),
 });
 export type AnimalSchema = z.infer<typeof animalFormSchema>;

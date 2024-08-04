@@ -19,12 +19,12 @@ export const useAnimalForm = () => {
   const {
     register,
     handleSubmit,
-    setValue,
     formState: { errors },
+    setValue,
   } = useForm<AnimalSchema>({
     resolver: zodResolver(animalFormSchema),
   });
-  return { register, handleSubmit, setValue, errors };
+  return { register, handleSubmit, errors, setValue };
 };
 
 export const useLoginForm = () => {

@@ -106,3 +106,38 @@ td:last-child {
   font-weight: bold;
   background-color: var(--color-darkGreen);
 }
+
+.btnModal {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.modelBtn {
+  border-radius: 0.25rem;
+  padding: 0.81rem 1.32rem;
+  width: 11.94rem;
+  height: 2.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  border: none;
+  font-size: 0.88rem;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.modelBtn:hover {
+  background-color: #26c485;
+}
+
+.reset {
+  background-color: #baa898;
+}
+
+.add {
+  background-color: #26c485;
+}

@@ -3,13 +3,12 @@ import axios from "axios";
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
-export const createAnimal = async (animalData: AnimalSchema) => {
+export const createAnimal = async (data: AnimalSchema) => {
   try {
-    const response = await axios.post(`${API_BASE_URL}/animals`, animalData);
+    const response = await axios.post(`${API_BASE_URL}/animals`, data);
     return response.data;
   } catch (error) {
     console.error("Error creating animal:", error);
-    throw error;
   }
 };
 

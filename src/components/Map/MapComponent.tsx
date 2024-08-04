@@ -1,77 +1,57 @@
-import React, { useEffect, useState, useCallback } from "react";
-import {
-  GoogleMap,
-  useLoadScript,
-  Marker,
-  Libraries,
-} from "@react-google-maps/api";
+// import React, { useEffect, useState, useCallback } from "react";
+// import useGetLocation from "@app/hooks/useGetLocation";
+// import {
+//   MapContainer,
+//   MapContainerProps,
+//   TileLayer,
+//   Marker,
+//   Popup,
+// } from "react-leaflet";
+// import { LatLngExpression, LeafletMouseEvent } from "leaflet";
 
-const containerStyle = {
-  width: "100%",
-  height: "300px",
-};
+// const containerStyle = {
+//   width: "100%",
+//   height: "250px",
+// };
 
-const center = {
-  lat: -3.745,
-  lng: -38.523,
-};
+// interface MapComponentProps {
+//   address: string;
+// }
 
-const libraries: Libraries = ["places"]; // Define libraries array with correct type
+// const MapComponent: React.FC<MapComponentProps> = ({ address }) => {
+//   const { coords } = useGetLocation();
+//   const [center, setCenter] = useState<LatLngExpression | null>(null);
+//   const [map, setMap] = useState<MapContainerProps | null>(null);
+//   if (!coords) {
+//     return <h1>Getting localization ...</h1>;
+//   }
 
-interface MapComponentProps {
-  address: string;
-}
+//   return (
+//     <MapContainer
+//       center={{ lat: coords[0], lng: coords[1] } as LatLngExpression}
+//       style={containerStyle}
+//       zoom={20}
+//       whenReady={(map) => {
+//         map.addEventListerner("click", (event: LeafletMouseEvent) => {
+//           setMap((prev) => ({
+//             ...prev,
+//             map: [event.latlng.lat, event.latlng.lng],
+//           }));
+//         });
+//       }}
+//       scrollWheelZoom={false}
+//     >
+//       <TileLayer
+//         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+//         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+//       />
+//       <Marker position={{ lat: coords[0], lng: coords[1] } as LatLngExpression}>
+//         <Popup>
+//           A pretty CSS3 popup. <br /> Easily customizable.
+//         </Popup>
+//       </Marker>
+//     </MapContainer>
+//   );
+// };
 
-const MapComponent: React.FC<MapComponentProps> = ({ address }) => {
-  const { isLoaded } = useLoadScript({
-    googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY as string,
-    libraries,
-  });
-
-  const [location, setLocation] = useState(center);
-  const [map, setMap] = useState<google.maps.Map | null>(null);
-
-  useEffect(() => {
-    const geocode = async () => {
-      if (!address) return;
-      const response = await fetch(
-        `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(
-          address
-        )}&key=${import.meta.env.VITE_GOOGLE_MAPS_API_KEY}`
-      );
-      const data = await response.json();
-      if (data.results.length > 0) {
-        const { lat, lng } = data.results[0].geometry.location;
-        setLocation({ lat, lng });
-        if (map) {
-          map.panTo({ lat, lng });
-        }
-      }
-    };
-    geocode();
-  }, [address, map]);
-
-  const onLoad = useCallback((mapInstance: google.maps.Map) => {
-    setMap(mapInstance);
-  }, []);
-
-  const onUnmount = useCallback(() => {
-    setMap(null);
-  }, []);
-
-  return isLoaded ? (
-    <GoogleMap
-      mapContainerStyle={containerStyle}
-      center={location}
-      zoom={10}
-      onLoad={onLoad}
-      onUnmount={onUnmount}
-    >
-      <Marker position={location} />
-    </GoogleMap>
-  ) : (
-    <></>
-  );
-};
-
-export default MapComponent;
+// export default MapComponent;
