@@ -4,6 +4,10 @@ export type Animal = {
   description: string;
   address: string;
   category: string;
+  location: {
+    lat: number;
+    lng: number;
+  };
   createdAt: string;
   createdBy: string;
 };

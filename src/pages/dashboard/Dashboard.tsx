@@ -30,11 +30,17 @@ const Dashboard = () => {
     document.title = "Dashboard 🐶 - Challenge Compass";
   }, []);
 
-  const animalCount = data.length;
+  const groupedData = data.reduce((acc, animal) => {
+    if (!acc[animal.category]) {
+      acc[animal.category] = [];
+    }
+    acc[animal.category].push(animal);
+    return acc;
+  }, {} as { [key: string]: Animal[] });
 
   return (
     <div className={styles.aside}>
-      <SideMenu menu={menu} />
+      <SideMenu menu={menu} toggleMenu={toggleMenu} />
       <div className={styles.notAside}>
         <div className={styles.header}>
           <Header searchPlaceholder="Search..." action={toggleMenu} />
@@ -42,10 +48,19 @@ const Dashboard = () => {
         <section className={styles.containerCards}>
           <CardPage
             icon="src/assets/images/icone-pata.png"
-            title="Animals"
-            quantity={animalCount}
-            color="#8bacc2"
+            title="All animals"
+            quantity={data.length}
+            color="#dfd5bf"
           />
+          {Object.keys(groupedData).map((category) => (
+            <CardPage
+              key={category}
+              icon="src/assets/images/icone-pata.png"
+              title={category}
+              quantity={groupedData[category].length}
+              color="#dbe8f1"
+            />
+          ))}
         </section>
       </div>
     </div>

@@ -77,26 +77,15 @@
 }
 
 @media (max-width: 1024px) {
-  .menuIcon {
-    display: block;
-    position: fixed;
-    top: 1vh;
-    left: 4vw;
-    z-index: 1001;
-    cursor: pointer;
-    transition: ease-in-out 1s;
-  }
-
   .menuIcon:hover {
     color: white;
   }
 
   .sidebar {
-    width: 30%;
+    width: 60%;
     height: 100vh;
     bottom: auto;
     z-index: 1;
-    position: fixed; 
   }
 
   .sidebar.side {

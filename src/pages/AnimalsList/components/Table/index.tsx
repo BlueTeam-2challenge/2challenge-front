@@ -3,93 +3,71 @@ import UserProfile from "@components/UserProfile";
 import styles from "./Table.module.css";
 import { Pen, Trash, PawPrint } from "lucide-react";
 import { Animal } from "./types";
-import ModalInsert from "@components/modalInsert/ModalInsert";
-import ModalRemove from "@components/modalRemove/ModalRemove";
+import Modal from "@components/Modal/Modal";
 import { AuthContext } from "@app/contexts/AuthContext";
 import {
   createAnimal,
   deleteAnimal,
-  getAllAnimalsByUserId,
   getAllAnimals,
+  updateAnimal,
 } from "@services/animalService";
-import { animalFormSchema, AnimalSchema } from "@app/schemas/animalFormSchema";
-import { MapContainer } from "react-leaflet/MapContainer";
+import { AnimalSchema } from "@app/schemas/animalFormSchema";
 import { LatLngExpression, LeafletMouseEvent } from "leaflet";
-import { useAnimalForm } from "@app/hooks/useForms";
-import { useNavigate } from "react-router-dom";
 import useGetLocation from "@app/hooks/useGetLocation";
-import { toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import axios from "axios";
-import { Marker, Popup, TileLayer, useMapEvents } from "react-leaflet";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
+import {
+  MapContainer,
+  Marker,
+  Popup,
+  TileLayer,
+  useMapEvents,
+} from "react-leaflet";
+import { useAnimalForm } from "@app/hooks/useForms";
 
 export default function Table() {
   const [animals, setAnimals] = useState<Animal[]>([]);
-  const [openModal, setOpenModal] = useState(false);
-  const categories = ["Dog", "Cat", "Bird", "Fish", "Reptile", "Other"];
+  const [animalsToEdit, setAnimalsToEdit] = useState<Animal | null>(null);
+  const [animalsToDelete, setAnimalsToDelete] = useState<Animal | null>(null);
+  const [openCreateModal, setOpenCreateModal] = useState(false);
+  const [openDeleteModal, setOpenDeleteModal] = useState(false);
+  const [updateCounter, setUpdateCounter] = useState(0);
   const [position, setPosition] = useState<{ lat: number; lng: number } | null>(
     null
   );
+  const categories = ["Dog", "Cat", "Bird", "Fish", "Reptile", "Other"];
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    setValue,
-  } = useForm({
-    resolver: zodResolver(animalFormSchema),
-    defaultValues: {
-      petName: "",
-      category: "",
-      description: "",
-      address: "",
-      location: {
-        lat: 0,
-        lng: 0,
-      },
-      createdBy: "",
-    },
-  });
+  const { register, handleSubmit, errors, setValue, reset } = useAnimalForm();
   const { user } = useContext(AuthContext);
 
   useEffect(() => {
     async function loadAnimals() {
-      if (user?.uid) {
-        try {
-          const response = await getAllAnimals();
-          if (!response) {
-            setAnimals([]);
-          } else {
-            setAnimals(response);
-          }
-        } catch (error) {
-          console.error("Error loading animals:", error);
-        }
-      }
+      const response = await getAllAnimals();
+      setAnimals(response);
     }
     document.title = "Animals List 🐶 - Challenge Compass";
     loadAnimals();
-  }, [user]);
-
-  const navigate = useNavigate();
-  const { coords } = useGetLocation();
-
-  if (!coords) {
-    return <h1>Getting localization ...</h1>;
-  }
+  }, [updateCounter]);
 
   const onSubmit = async (data: AnimalSchema) => {
     console.log(data);
     try {
-      await createAnimal(data);
-      toast.success("Animal added successfully!", {
-        position: "top-center",
-        autoClose: 1500,
-      });
-      setTimeout(() => {
-        setOpenModal(false);
-      }, 2000);
+      if (animalsToEdit) {
+        await updateAnimal(animalsToEdit.id, data);
+        toast.success("Animal updated successfully!", {
+          position: "top-center",
+          autoClose: 1500,
+        });
+      } else {
+        await createAnimal(data);
+        toast.success("Animal added successfully!", {
+          position: "top-center",
+          autoClose: 1500,
+        });
+      }
+      setOpenCreateModal(false);
+      setAnimalsToEdit(null);
+      setUpdateCounter(updateCounter + 1);
     } catch (error) {
       toast.error("An error occurred. Please try again.", {
         position: "bottom-center",
@@ -97,6 +75,30 @@ export default function Table() {
     }
   };
 
+  const onDelete = async () => {
+    if (animalsToDelete) {
+      try {
+        await deleteAnimal(animalsToDelete.id);
+        toast.success("Animal deleted successfully!", {
+          position: "top-center",
+          autoClose: 1500,
+        });
+        setOpenDeleteModal(false);
+        setAnimalsToDelete(null);
+        setUpdateCounter(updateCounter + 1);
+      } catch (error) {
+        toast.error("An error occurred. Please try again.", {
+          position: "bottom-center",
+        });
+      }
+    }
+  };
+
+  const { coords } = useGetLocation();
+
+  if (!coords) {
+    return <h1>Getting localization ...</h1>;
+  }
   const fetchAddress = async (lat: number, lng: number) => {
     try {
       const response = await axios.get(
@@ -137,15 +139,37 @@ export default function Table() {
     return null;
   };
   const handleEdit = (animal: Animal) => {
-    console.log("Edit", animal);
+    setAnimalsToEdit(animal);
+    setValue("petName", animal.petName);
+    setValue("category", animal.category);
+    setValue("description", animal.description);
+    setValue("address", animal.address);
+    setValue("location", animal.location);
+    setPosition(animal.location);
+    setOpenCreateModal(true);
+  };
+
+  const handleDelete = (animal: Animal) => {
+    setAnimalsToDelete(animal);
+    setOpenDeleteModal(true);
+  };
+
+  const clearFields = () => {
+    reset();
   };
 
   return (
     <div className={styles.container}>
+      <ToastContainer />
       <div className={styles.tableHeader}>
         <h1 className={styles.title}>Animals List</h1>
-        <button className={styles.addButton} onClick={() => setOpenModal(true)}>
-          ADD NEW PET
+        <button
+          className={styles.addButton}
+          onClick={() => {
+            clearFields(), setOpenCreateModal(true);
+          }}
+        >
+          <span>ADD NEW PET</span>
           <PawPrint />
         </button>
       </div>
@@ -182,7 +206,12 @@ export default function Table() {
                   >
                     <Pen />
                   </button>
-                  <button className={styles.deleteButton} onClick={() => {}}>
+                  <button
+                    className={styles.deleteButton}
+                    onClick={() => {
+                      handleDelete(animal);
+                    }}
+                  >
                     <Trash />
                   </button>
                 </td>
@@ -192,8 +221,8 @@ export default function Table() {
         </table>
       </div>
 
-      <ModalInsert isOpen={openModal} onClose={() => setOpenModal(!open)}>
-        <form onSubmit={handleSubmit(onSubmit)}>
+      <Modal isOpen={openCreateModal} onClose={() => setOpenCreateModal(false)}>
+        <form onSubmit={handleSubmit(onSubmit)} className={styles.formCreate}>
           <input
             type="text"
             id="name"
@@ -238,7 +267,7 @@ export default function Table() {
                   lng: coords[1],
                 } as LatLngExpression
               }
-              zoom={20}
+              zoom={13}
               style={{
                 width: "100%",
                 height: "250px",
@@ -248,7 +277,6 @@ export default function Table() {
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               />
-              {/* <MapChanges /> */}
               <MapChanges />
               {position && (
                 <Marker position={position}>
@@ -262,7 +290,11 @@ export default function Table() {
           </div>
           <div className={styles.btnModal}>
             <button
-              onClick={() => setOpenModal(false)}
+              onClick={() => {
+                setOpenCreateModal(false),
+                  clearFields(),
+                  setAnimalsToEdit(null);
+              }}
               className={`${styles.modelBtn} ${styles.reset}`}
               type="reset"
             >
@@ -272,12 +304,33 @@ export default function Table() {
               type="submit"
               className={`${styles.modelBtn} ${styles.add}`}
             >
-              ADD NEW PET
+              {animalsToEdit ? "UPDATE PET" : "ADD NEW PET"}
               <img src="src/assets/images/paw-btn.png" alt="paw-icon" />
             </button>
           </div>
         </form>
-      </ModalInsert>
+      </Modal>
+      <Modal isOpen={openDeleteModal} onClose={() => setOpenDeleteModal(false)}>
+        <div>
+          <h2>Do you really want to remove this Pet?</h2>
+          <div className={styles.btnModal}>
+            <button
+              className={`${styles.modelBtn} ${styles.reset}`}
+              type="button"
+              onClick={() => setOpenDeleteModal(false)}
+            >
+              No
+            </button>
+            <button
+              type="button"
+              className={`${styles.modelBtn} ${styles.add}`}
+              onClick={onDelete}
+            >
+              Yes
+            </button>
+          </div>
+        </div>
+      </Modal>
     </div>
   );
 }

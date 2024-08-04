@@ -29,6 +29,11 @@ const SideMenu = ({ menu }: SideMenuProps) => {
               label="Animals"
               icon="src\assets\images\Animals-icon.png"
             />
+            <NavButton
+              to="/locations"
+              label="Locations"
+              icon="src\assets\images\Animals-icon.png"
+            />
           </div>
         </div>
         <div className={styles.logout}>

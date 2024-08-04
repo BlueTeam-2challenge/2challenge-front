@@ -37,6 +37,10 @@
   padding: 0 0 0 0.5rem;
 }
 
+.input:focus {
+  border: none;
+}
+
 @media screen and (max-width: 1024px) {
   @keyframes fadeIn {
     0% {
@@ -50,12 +54,6 @@
   .menuClosed .button {
     animation: fadeIn 0.5s ease-in-out;
     background-color: transparent;
-  }
-  .menuClosed .menu {
-    position: fixed;
-    left: 25%;
-    top: 1rem;
-    z-index: 2;
   }
 
   .menuClosed .search {

@@ -1,14 +1,10 @@
 import React from "react";
-import styles from "./ModalInsert.module.css";
+import styles from "./Modal.module.css";
 import { Logo } from "../Logo";
 import { ModalInsertProps } from "./types";
 import { X } from "lucide-react";
 
-const ModalInsert: React.FC<ModalInsertProps> = ({
-  isOpen,
-  onClose,
-  children,
-}) => {
+const Modal: React.FC<ModalInsertProps> = ({ isOpen, onClose, children }) => {
   if (!isOpen) return null;
 
   return (
@@ -26,4 +22,4 @@ const ModalInsert: React.FC<ModalInsertProps> = ({
   );
 };
 
-export default ModalInsert;
+export default Modal;
