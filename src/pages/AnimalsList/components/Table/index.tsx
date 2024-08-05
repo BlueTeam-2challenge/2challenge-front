@@ -8,7 +8,7 @@ import { AuthContext } from "@app/contexts/AuthContext";
 import {
   createAnimal,
   deleteAnimal,
-  getAllAnimals,
+  getAllAnimalsByUserId,
   updateAnimal,
 } from "@services/animalService";
 import { AnimalSchema } from "@app/schemas/animalFormSchema";
@@ -42,7 +42,10 @@ export default function Table() {
 
   useEffect(() => {
     async function loadAnimals() {
-      const response = await getAllAnimals();
+      if (!user) {
+        return;
+      }
+      const response = await getAllAnimalsByUserId(user?.uid);
       setAnimals(response);
     }
     document.title = "Animals List 🐶 - Challenge Compass";
@@ -255,6 +258,7 @@ export default function Table() {
           <input
             type="text"
             id="address"
+            disabled
             placeholder="Enter animal address"
             {...register("address")}
           />

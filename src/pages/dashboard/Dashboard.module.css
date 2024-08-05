@@ -27,15 +27,25 @@
 
 .containerCards {
   display: flex;
+  gap: 2rem;
   flex-flow: row wrap;
   padding: 0 30px;
 }
 
 @media screen and (max-width: 768px) {
   .containerCards {
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row wrap;
+    gap: 2rem;
   }
   .notAside {
     padding: 10px;
+  }
+}
+@media screen and (max-width: 425px) {
+  .containerCards {
+    width: 100%;
+    flex-flow: column;
   }
 }

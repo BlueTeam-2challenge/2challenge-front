@@ -8,10 +8,6 @@
   border-radius: 0.5rem;
   width: 15.94rem;
   height: 9.81rem;
-  float: inline-start;
-  margin-right: 3rem;
-  margin-bottom: 1rem;
-  vertical-align: top;
 }
 
 .card-text {
@@ -36,11 +32,6 @@
 }
 
 @media (max-width: 768px) {
-  .mb-2 {
-    width: 100%;
-    height: auto;
-  }
-
   .card-title {
     font-size: 0.8rem;
   }
