@@ -82,11 +82,11 @@ const LoginPage = () => {
             Don't have an account? Sign up here
           </Link>
           <SignIn label="SIGN IN" isActive onClick={handleSubmit(onSubmit)} />
-          <GoogleButton
-            label="SIGN IN WITH GOOGLE"
-            onClick={handleGoogleSignIn}
-          />
         </form>
+        <GoogleButton
+          label="SIGN IN WITH GOOGLE"
+          onClick={handleGoogleSignIn}
+        />
       </Card>
     </Container>
   );
